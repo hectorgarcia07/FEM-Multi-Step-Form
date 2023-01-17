@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './theme/custom_theme';
+import Banner from './components/Banner'
+import FormLayout from './components/FormComponents/FormLayout'
+import LayoutContainer from './components/containers/LayoutContainer'
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <LayoutContainer 
+          theme={theme} 
+          spacing={0}
+          alignItems="center"
+          style={{ minHeight: '100vh' }} 
+      >
+        <Banner />
+        <FormLayout />
+      </LayoutContainer>
+    </ThemeProvider>
   );
 }
 
 export default App;
+
+/*
+            direction="column"
+            justifyContent="center"
+            */
