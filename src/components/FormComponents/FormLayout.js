@@ -1,7 +1,5 @@
 import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/system';
-import FormHeader from './FormHeader';
-import InfoParagraph from '../InfoParagraph';
 import FormContainer from '../containers/FormContainer';
 import SelectPlanRadio from './SelectPlanRadio';
 

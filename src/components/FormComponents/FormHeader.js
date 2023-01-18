@@ -4,6 +4,7 @@ import FormLabel from '@mui/material/FormLabel';
 
 const FormHeader = styled(FormLabel)(({ theme }) => ({
     fontSize: '1.5rem',
+    fontWeight: '900',
     color: `${ theme.colors.primary.marine_blue }`
 }));
 

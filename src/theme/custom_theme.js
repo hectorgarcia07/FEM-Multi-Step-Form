@@ -2,6 +2,12 @@ import { createTheme } from '@mui/material/styles'
 import mobileBackground from '../images/bg-sidebar-mobile.svg'
 import desktopBackground from '../images/bg-sidebar-desktop.svg'
 
+import iconAdvanced from '../images/icon-advanced.svg'
+import iconArcade from '../images/icon-arcade.svg'
+import iconCheckmark from '../images/icon-checkmark.svg'
+import iconPro from '../images/icon-pro.svg'
+import iconThankYou from '../images/icon-thank-you.svg'
+
 export const theme = createTheme({
     breakpoints: {
         values: {
@@ -13,7 +19,6 @@ export const theme = createTheme({
         mobile: mobileBackground,
         desktop: desktopBackground
     },
-    
     colors: {
       primary: {
         marine_blue: 'hsl(213, 96%, 18%)',
@@ -29,5 +34,12 @@ export const theme = createTheme({
         alabaster: 'hsl(231, 100%, 99%)',
         white: 'hsl(0, 0%, 100%)'
       }
+    },
+    icons: {
+      advanced: iconAdvanced,
+      arcade: iconArcade,
+      checkmark: iconCheckmark,
+      pro: iconPro,
+      thankYou: iconThankYou
     }
   });
