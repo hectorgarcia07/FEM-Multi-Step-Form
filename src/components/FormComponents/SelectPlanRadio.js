@@ -1,31 +1,30 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
-
-import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormHeader from './FormHeader';
-import InfoParagraph from '../InfoParagraph';
-import { ReactSVG } from "react-svg";
+import { Box } from '@mui/system';
+import FormGroup from '@mui/material/FormGroup';
+import Switch from '@mui/material/Switch';
 
+import InfoParagraph from '../InfoParagraph';
 import RadioContainer from '../containers/RadioContainer';
-import { useRadioGroup } from '@mui/material/RadioGroup';
 import CustomRadio from './CustomRadio';
 
-const Description = () => {
+const Description = ({ title, price}) => {
+  const theme = useTheme()
+
   return (
-    <div>
-      <p>Arcade</p>
-      <p>$9/mo</p>
-    </div>
+    <Box>
+      <Box sx={{ color: theme.colors.primary.marine_blue, fontWeight: '900' }}>{ title }</Box>
+      <Box sx={{ color: theme.colors.neutral.cool_gray }}>{ price }</Box>
+    </Box>
   )
 }
 
 function SelectPlanRadio() {
   const theme = useTheme()
-
-  const Advanced = theme.icons.advanced
 
   console.log(theme.icons.advanced)
   const innerForm = {
@@ -37,17 +36,26 @@ function SelectPlanRadio() {
 
   return (
     <FormControl sx={innerForm}>
-      <FormHeader id="demo-radio-buttons-group-label">Select your plan</FormHeader>
-      <InfoParagraph>You have the option of monthlhy or yearly billing</InfoParagraph>
+      <FormHeader id="plan-selection-label" >
+        Select your plan
+      </FormHeader>
+      <InfoParagraph>
+        You have the option of monthlhy or yearly billing
+      </InfoParagraph>
+
       <RadioGroup
-        aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="female"
-        name="radio-buttons-group"
+        aria-labelledby="plan-selection-label"
+        defaultValue="arcade"
+        name="plan-selection"
       >
-        <RadioContainer value="arcade" control={<CustomRadio icon={ <ReactSVG src={theme.icons.arcade} /> }/>} label={<Description />} />
-        <FormControlLabel value="advanced" control={<Radio  />} label="Male" />
-        <FormControlLabel value="pro" control={<Radio />} label="Other" />
+        <RadioContainer value="arcade" control={<CustomRadio icon={ theme.icons.arcade }/>} label={<Description title={"Arcade"} price={"$9/mo"} />} />
+        <RadioContainer value="advanced" control={<CustomRadio icon={ theme.icons.advanced }/>} label={<Description title={"Advanced"} price={"$12/mo"} />} />
+        <RadioContainer value="pro" control={<CustomRadio icon={ theme.icons.pro }/>} label={<Description title={"Pro"} price={"$15/mo"} />} />
       </RadioGroup>
+
+      <FormGroup>
+        <FormControlLabel control={<Switch defaultChecked />}  sx={{ justifyContent: 'center' }} />
+      </FormGroup>
     </FormControl>
   );
 }

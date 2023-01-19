@@ -1,12 +1,12 @@
-import Radio from '@mui/material/Radio';
 import { styled } from '@mui/material/styles';
 import { ReactSVG } from "react-svg";
+import Switch from '@mui/material/Switch';
 
-const CustomRadio = styled(({ icon, ...props }) => {
+const CustomSwitch = styled(({ icon, ...props }) => {
     console.log("icon", props)
 
     return (
-        <Radio {...props} checkedIcon={ <ReactSVG src={icon} /> } icon={ <ReactSVG src={icon} /> }  />
+        <Switch {...props} checkedIcon={ <ReactSVG src={icon} /> } icon={ <ReactSVG src={icon} /> }  />
     )
     
 })(({ theme }) => {
@@ -17,4 +17,4 @@ const CustomRadio = styled(({ icon, ...props }) => {
     })
 });
 
-export default CustomRadio
+export default CustomSwitch
