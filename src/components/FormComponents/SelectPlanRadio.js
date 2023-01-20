@@ -54,7 +54,7 @@ function SelectPlanRadio() {
       </RadioGroup>
 
       <FormGroup>
-        <FormControlLabel control={<Switch defaultChecked />}  sx={{ justifyContent: 'center' }} />
+        <FormControlLabel control={<Switch defaultChecked />}  sx={{ justifyContent: 'center' }} label={'Stuff'} />
       </FormGroup>
     </FormControl>
   );

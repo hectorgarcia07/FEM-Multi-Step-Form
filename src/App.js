@@ -22,8 +22,3 @@ function App() {
 }
 
 export default App;
-
-/*
-            direction="column"
-            justifyContent="center"
-            */
