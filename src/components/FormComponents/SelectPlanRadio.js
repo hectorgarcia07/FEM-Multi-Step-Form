@@ -6,8 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import FormHeader from './FormHeader';
 import { Box } from '@mui/system';
 import FormGroup from '@mui/material/FormGroup';
-import Switch from '@mui/material/Switch';
-
+import CustomSwitch from './CustomSwitch'
 import InfoParagraph from '../InfoParagraph';
 import RadioContainer from '../containers/RadioContainer';
 import CustomRadio from './CustomRadio';
@@ -53,9 +52,7 @@ function SelectPlanRadio() {
         <RadioContainer value="pro" control={<CustomRadio icon={ theme.icons.pro }/>} label={<Description title={"Pro"} price={"$15/mo"} />} />
       </RadioGroup>
 
-      <FormGroup>
-        <FormControlLabel control={<Switch defaultChecked />}  sx={{ justifyContent: 'center' }} label={'Stuff'} />
-      </FormGroup>
+      <CustomSwitch  />
     </FormControl>
   );
 }
