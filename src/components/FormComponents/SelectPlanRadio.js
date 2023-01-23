@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormHeader from './FormHeader';
 import { Box } from '@mui/system';
-import FormGroup from '@mui/material/FormGroup';
 import CustomSwitch from './CustomSwitch'
 import InfoParagraph from '../InfoParagraph';
 import RadioContainer from '../containers/RadioContainer';

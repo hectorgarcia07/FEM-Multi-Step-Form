@@ -97,7 +97,11 @@ const SwitchLabelContainer = styled('div')(
 )
 
 export default function UnstyledSwitches(props) {
-    const label = { slotProps: { input: { 'aria-label': 'Plan Selection' } } };
+    const label = { 
+      slotProps: { 
+        input: { 'aria-label': 'Plan Selection', 'name': 'planType' },
+      },
+    };
     const checked = useSwitch(props)
     console.log(checked)
 
