@@ -8,7 +8,7 @@ import iconCheckmark from '../images/icon-checkmark.svg'
 import iconPro from '../images/icon-pro.svg'
 import iconThankYou from '../images/icon-thank-you.svg'
 
-export const theme = createTheme({
+export const custom_theme = createTheme({
     breakpoints: {
         values: {
             mobile: '375',

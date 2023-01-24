@@ -20,7 +20,7 @@ const Description = ({ title, price}) => {
   )
 }
 
-function SelectPlanRadio() {
+function SelectPlanForm() {
   const theme = useTheme()
 
   console.log(theme.icons.advanced)
@@ -55,4 +55,4 @@ function SelectPlanRadio() {
   );
 }
 
-export default SelectPlanRadio
+export default SelectPlanForm

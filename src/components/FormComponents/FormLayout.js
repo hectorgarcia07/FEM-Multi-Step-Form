@@ -1,11 +1,12 @@
 import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import FormContainer from '../containers/FormContainer';
-import SelectPlanRadio from './SelectPlanRadio';
+import SelectPlanForm from './SelectPlanForm';
 
 const FormLayout = () => {
+    const theme = useTheme()
     const outerForm = {
-        backgroundColor: 'white',
+        backgroundColor: `${ theme.colors.neutral.white }`,
         borderRadius: '10px',
         overflow: 'hidden',
         border: '1px solid transparent',
@@ -15,7 +16,7 @@ const FormLayout = () => {
     return(
         <FormContainer >
             <Box sx={outerForm}>
-                <SelectPlanRadio />
+                <SelectPlanForm />
             </Box>
            <Box sx={{  }}>Footer buttons</Box>
         </FormContainer>
