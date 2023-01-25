@@ -3,30 +3,30 @@ import { custom_theme } from './theme/custom_theme';
 import Banner from './components/Banner'
 import FormLayout from './components/FormComponents/FormLayout'
 import LayoutContainer from './components/containers/LayoutContainer'
-import React, { useState, useReducer, createContext } from 'react';
+import React, { useState, useReducer, createContext } from 'react'
+import Box from '@mui/material/Box';
 
 function App() {
-  const FormPageContext = createContext();
-
-  const layoutStyle = { 
-    minHeight: '100vh',
-    backgroundColor: `${custom_theme.colors.neutral.alabaster}`,
-  }
-
   return (
     <ThemeProvider theme={custom_theme}>
-      <FormPageContext.Provider>
-        <LayoutContainer 
-          theme={custom_theme} 
-          spacing={0}
-          alignItems="center"
-          style={layoutStyle}
-        >
+      <LayoutContainer 
+        theme={custom_theme} 
+        spacing={0}
+        alignItems="center"
+      >
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          maxWidth: '1440px',
+          [custom_theme.breakpoints.up(`${custom_theme.breakpoints.values.desktop}`)]: {
+            flexDirection: 'row'
+          },
+        }}>
           <Banner />
           <FormLayout />
-        </LayoutContainer>
-      </FormPageContext.Provider>
-    </ThemeProvider>
+        </Box>
+      </LayoutContainer>
+  </ThemeProvider>
   );
 }
 

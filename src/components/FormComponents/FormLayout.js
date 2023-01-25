@@ -10,7 +10,11 @@ const FormLayout = () => {
         borderRadius: '10px',
         overflow: 'hidden',
         border: '1px solid transparent',
-        margin: '0 0.6rem'
+        margin: '0 0.6rem',
+
+        [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+            paddingLeft: '5rem',
+        },
     }
 
     return(

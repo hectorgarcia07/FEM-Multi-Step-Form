@@ -1,15 +1,25 @@
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 const Banner = () => {
-    const theme = useTheme()
+    const StepLabel = styled('div')(({ theme }) => ({
+        color: theme.colors.neutral.magnolia,
+        fontSize: '0.7rem',
+    }));
 
-    const matches = useMediaQuery(`(max-width: ${theme.breakpoints.values.mobile}px)`);
-    console.log(theme.breakpoints.values.mobile)
+    const StepInfo = styled('div')(({ theme }) => ({
+        color: theme.colors.neutral.white,
+        fontSize: '0.9rem',
+        fontWeight: 'bold'
+    }));
 
     const Image = styled('img')(({ theme }) => ({
         display: 'block',
-        position: 'relative'
+        position: 'relative',
+        content: `url(${theme.backgroundImg.mobile})`,
+
+        [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
+            content: `url(${theme.backgroundImg.desktop})`,
+        }
     }));
 
     const UnorderedList = styled('ul')(({ theme }) => ({
@@ -21,15 +31,30 @@ const Banner = () => {
         position: 'absolute',
         zIndex: '10',
         width: '100%',
-        margin: "2.5rem 0"
+        margin: "2.5rem 0",
+
+        [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
+            flexDirection: 'column',
+            margin: '2.5rem 1.5rem'
+        }
     }));
 
     const ListItem = styled('li')(({ theme }) => ({
-        
+        display: 'flex',
+        [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
+            '&:not(:first-of-type)': {
+                margin: '1.2rem 0rem',
+
+          }
+        }
     }));
 
     const ListInfo = styled('div')(({ theme }) => ({
-        display: 'none'
+        display: 'none',
+        [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
+            display: 'block',
+            marginLeft: '0.5rem'
+        }
     }));
 
     const ListNumber = styled('div')(({ theme }) => ({
@@ -48,7 +73,7 @@ const Banner = () => {
     }));
 
     const ListContainer = styled('div')(({ theme }) => ({
-        position: 'relative'
+        position: 'relative',
     }));
 
     return (
@@ -57,33 +82,33 @@ const Banner = () => {
                 <ListItem>
                     <ListNumber>1</ListNumber>
                     <ListInfo>
-                        <p>STEP 1</p>
-                        <p>YOUR INFO</p>
+                        <StepLabel>STEP 1</StepLabel>
+                        <StepInfo>YOUR INFO</StepInfo>
                     </ListInfo>
                 </ListItem>
                 <ListItem>
                     <ListNumber>2</ListNumber>
                     <ListInfo>
-                        <p>STEP 2</p>
-                        <p>SELECT PLAN</p>
+                        <StepLabel>STEP 2</StepLabel>
+                        <StepInfo>SELECT PLAN</StepInfo>
                     </ListInfo>
                 </ListItem>
                 <ListItem>
                     <ListNumber>3</ListNumber>
                     <ListInfo>
-                        <p>STEP 3</p>
-                        <p>ADD-ONDS</p>
+                        <StepLabel>STEP 3</StepLabel>
+                        <StepInfo>ADD-ONDS</StepInfo>
                     </ListInfo>
                 </ListItem>
                 <ListItem>
                     <ListNumber>4</ListNumber>
                     <ListInfo>
-                        <p>STEP 4</p>
-                        <p>SUMMARY</p>
+                        <StepLabel>STEP 4</StepLabel>
+                        <StepInfo>SUMMARY</StepInfo>
                     </ListInfo>
                 </ListItem>
             </UnorderedList>
-            <Image src={ theme.backgroundImg.mobile } />
+            <Image />
         </ListContainer>
     )
 }
