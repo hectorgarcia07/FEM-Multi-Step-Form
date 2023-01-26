@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 import { ReactSVG } from "react-svg";
 
 const CustomRadio = styled(({ icon, ...props }) => {
-    console.log("icon", props)
 
     return (
         <Radio {...props} checkedIcon={ <ReactSVG src={icon} /> } icon={ <ReactSVG src={icon} /> }  />

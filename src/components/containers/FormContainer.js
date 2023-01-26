@@ -7,7 +7,10 @@ const FormContainer = styled(Box)(({ theme }) => ({
     display: 'block',
 
     [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
-        position: 'static'
+        position: 'static',
+        [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+            width: '100%'
+        },
     }
 }));
 

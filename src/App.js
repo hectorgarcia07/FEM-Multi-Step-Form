@@ -3,7 +3,7 @@ import { custom_theme } from './theme/custom_theme';
 import Banner from './components/Banner'
 import FormLayout from './components/FormComponents/FormLayout'
 import LayoutContainer from './components/containers/LayoutContainer'
-import React, { useState, useReducer, createContext } from 'react'
+
 import Box from '@mui/material/Box';
 
 function App() {
@@ -18,8 +18,12 @@ function App() {
           display: 'flex',
           flexDirection: 'column',
           maxWidth: '1440px',
+          width: '100%',
+          alignItems: 'center',
+
           [custom_theme.breakpoints.up(`${custom_theme.breakpoints.values.desktop}`)]: {
-            flexDirection: 'row'
+            flexDirection: 'row',
+            alignItems: 'flex-start'
           },
         }}>
           <Banner />

@@ -42,10 +42,10 @@ const Banner = () => {
     const ListItem = styled('li')(({ theme }) => ({
         display: 'flex',
         [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
-            '&:not(:first-of-type)': {
-                margin: '1.2rem 0rem',
-
-          }
+            margin: '1rem 0rem',
+            [`&:first-of-type`] :{
+                marginTop: '0'
+            }
         }
     }));
 
@@ -58,7 +58,7 @@ const Banner = () => {
     }));
 
     const ListNumber = styled('div')(({ theme }) => ({
-        margin: '0 0.6rem',
+        margin: '0 0.5rem',
         borderRadius: '50%',
         listStyle: 'none',
         border: '1px solid white',

@@ -103,7 +103,6 @@ export default function UnstyledSwitches(props) {
       },
     };
     const checked = useSwitch(props)
-    console.log(checked)
 
     return (
       <SwitchLabelContainer>

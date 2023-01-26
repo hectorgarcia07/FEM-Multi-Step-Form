@@ -5,7 +5,6 @@ import { useRadioGroup } from '@mui/material/RadioGroup';
 const RadioContainer = styled(FormControlLabel)(({ theme, value }) => {
     const radioGroup = useRadioGroup()
     const selected = value === radioGroup.value
-    console.log(value === radioGroup.value)
 
     return ({
         padding: '1rem',

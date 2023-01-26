@@ -23,7 +23,6 @@ const Description = ({ title, price}) => {
 function SelectPlanForm() {
   const theme = useTheme()
 
-  console.log(theme.icons.advanced)
   const innerForm = {
     padding: '2rem 1.5rem',
     maxWidth: '22rem',
