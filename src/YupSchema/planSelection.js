@@ -11,4 +11,13 @@ const PlanSelection = yup.object().shape({
     addOns: yup.array().min(1).of(yup.string().required()).required(),
 })
 
+export const initialValues = {
+    name: '',
+    email: '',
+    phone: '',
+    plan: '',
+    planLength: true,
+    addOns: []
+  }
+
 export default PlanSelection

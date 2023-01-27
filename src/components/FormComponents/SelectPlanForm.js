@@ -24,8 +24,8 @@ function SelectPlanForm() {
   const theme = useTheme()
 
   const innerForm = {
-    padding: '2rem 1.5rem',
-    maxWidth: '22rem',
+    padding: '2rem 1rem',
+    maxWidth: '21rem',
     margin: '0 auto',
     position: 'relative',      
   }
