@@ -24,10 +24,11 @@ function SelectPlanForm() {
   const theme = useTheme()
 
   const innerForm = {
+    display: 'block',
     padding: '2rem 1rem',
     maxWidth: '21rem',
     margin: '0 auto',
-    position: 'relative',      
+    height: '33rem'
   }
 
   return (

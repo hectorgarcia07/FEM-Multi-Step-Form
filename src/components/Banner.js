@@ -31,7 +31,7 @@ const Banner = () => {
         position: 'absolute',
         zIndex: '10',
         width: '100%',
-        margin: "2.5rem 0",
+        margin: "2rem 0",
 
         [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
             flexDirection: 'column',
@@ -62,8 +62,8 @@ const Banner = () => {
         borderRadius: '50%',
         listStyle: 'none',
         border: '1px solid white',
-        width: '30px',
-        height: '30px',
+        width: '33px',
+        height: '33px',
         display: 'flex',
         justifyContent: 'center',
 

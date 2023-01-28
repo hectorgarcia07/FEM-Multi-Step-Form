@@ -4,9 +4,12 @@ import FormControl from '@mui/material/FormControl';
 import FormHeader from './FormHeader';
 import InfoParagraph from '../InfoParagraph';
 import CustomInput from './CustomInput';
+import { useFormikContext, Formik, Form, Field } from 'formik';
 
 const  PersonalInfoForm = () => {
   const theme = useTheme()
+  const { values } = useFormikContext()
+  console.log(values)
 
   const innerForm = {
     padding: '2rem 1rem',
@@ -23,22 +26,30 @@ const  PersonalInfoForm = () => {
       <InfoParagraph>
         Please provide your name, email address, and phone number.
       </InfoParagraph>
-
-        <CustomInput
-            label="Name"
-            name="name"
-            type='text'
-            placeholder="e.g. Stephen King"
-            maxLength={28}
-            sx={{ paddingTop: '1rem' }}
-        />
-        <CustomInput
-            label="Email Address"
-            name="email"
-            type='email'
-            placeholder="e.g. stephenking@lorem.com"
-            maxLength={28}
-        />
+      <CustomInput
+        required
+        label="Name"
+        name="name"
+        type='text'
+        placeholder="e.g. Stephen King"
+        maxLength={28}
+        sx={{ paddingTop: '1rem' }}
+      />
+      <CustomInput
+      required
+        label="Email Address"
+        name="email"
+        type='email'
+        placeholder="e.g. stephenking@lorem.com"
+        maxLength={35}
+      />
+      <CustomInput
+        label="Phone Number"
+        name="phone"
+        type='text'
+        placeholder="e.g. +1 234 567 890"
+        maxLength={15}
+      />
     </FormControl>
   );
 }
