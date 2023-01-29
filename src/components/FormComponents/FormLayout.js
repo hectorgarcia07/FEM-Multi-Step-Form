@@ -7,8 +7,6 @@ import FormControlButtonContainer from '../containers/FormControlButtonContainer
 import { usePageValues } from '../../hooks/PageControlContextProvider';
 import PersonalInfoForm from './PersonalInfoForm'; 
 import { Formik } from 'formik';
-import Button from '@material-ui/core/Button';
-
 
 const FormLayout = () => {
     const theme = useTheme()
@@ -17,7 +15,7 @@ const FormLayout = () => {
     
     const outerForm = {
         backgroundColor: `${ theme.colors.neutral.white }`,
-        borderRadius: '10px',
+        borderRadius: '10px 10px 0 0',
         overflow: 'hidden',
         border: '1px solid transparent',
 
@@ -27,7 +25,7 @@ const FormLayout = () => {
         },
     }
 
-    const Form = styled('form')(({ theme }) => ({
+    const DIV = styled('div')(({ theme }) => ({
         
         [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
 
@@ -50,22 +48,22 @@ const FormLayout = () => {
     }
 
     return(
-        <FormContainer >
-            <Formik
-                initialValues={initialValues}
-                validationSchema={PlanSelection}
-                onSubmit={( values ) => {
-                  console.log(values)
-                }}
-            >
-                {props => (
-                    <Form sx={outerForm} onSubmit={props.handleSubmit}>
+        <Formik
+            initialValues={initialValues}
+            validationSchema={PlanSelection}
+            onSubmit={( values ) => {
+              console.log(values)
+            }}
+        >
+            {props => (
+                <FormContainer onSubmit={props.handleSubmit}>
+                    <DIV sx={outerForm} >
                     { renderFormPage() }
-                    <FormControlButtonContainer />                
-                </Form>
-                )}
-            </Formik>
-        </FormContainer>
+                    </DIV>
+                    <FormControlButtonContainer />  
+                </FormContainer>
+            )}
+        </Formik>
     )
 }
 

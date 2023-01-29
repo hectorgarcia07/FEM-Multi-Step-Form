@@ -5,8 +5,12 @@ import { usePageValues } from '../../hooks/PageControlContextProvider';
 const FormControlButtonContainer = () => {
     const [ pageState, dispatch] = usePageValues()
 
+    const styles = {
+        position: 'relative',
+    }
+
     return (
-        <Box sx={{  }}>
+        <Box sx={styles}>
             <Button 
                 color="primary" 
                 variant="contained" 

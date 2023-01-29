@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
 import FormControl from '@mui/material/FormControl';
 import FormHeader from './FormHeader';
 import InfoParagraph from '../InfoParagraph';
@@ -7,7 +6,6 @@ import CustomInput from './CustomInput';
 import { useFormikContext, Formik, Form, Field } from 'formik';
 
 const  PersonalInfoForm = () => {
-  const theme = useTheme()
   const { values } = useFormikContext()
   console.log(values)
 
@@ -15,7 +13,9 @@ const  PersonalInfoForm = () => {
     padding: '2rem 1rem',
     maxWidth: '21rem',
     margin: '0 auto',
-    position: 'relative',      
+    position: 'relative',
+    paddingBottom: '10rem',
+
   }
 
   return (

@@ -1,11 +1,11 @@
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 
-const FormContainer = styled(Box)(({ theme }) => ({
+const FormContainer = styled('form')(({ theme }) => ({
     position : 'relative', 
-    top: '-73px',
     display: 'block',
-
+    padding: '0 1rem',
+    
     [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
         position: 'static',
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {

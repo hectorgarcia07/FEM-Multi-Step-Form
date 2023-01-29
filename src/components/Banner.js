@@ -12,23 +12,13 @@ const Banner = () => {
         fontWeight: 'bold'
     }));
 
-    const Image = styled('img')(({ theme }) => ({
-        display: 'block',
-        position: 'relative',
-        content: `url(${theme.backgroundImg.mobile})`,
-
-        [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
-            content: `url(${theme.backgroundImg.desktop})`,
-        }
-    }));
-
     const UnorderedList = styled('ul')(({ theme }) => ({
         padding: '0',
         listStyle: 'none',
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'space-around',
-        position: 'absolute',
+        position: 'static',
         zIndex: '10',
         width: '100%',
         margin: "2rem 0",
@@ -108,7 +98,6 @@ const Banner = () => {
                     </ListInfo>
                 </ListItem>
             </UnorderedList>
-            <Image />
         </ListContainer>
     )
 }

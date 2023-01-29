@@ -11,8 +11,12 @@ function App() {
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '1440px',
-    width: '100%',
     alignItems: 'center',
+    position: 'relative',
+    border: '1px solid black',
+    backgroundImage: `url(${ custom_theme.backgroundImg.mobile })`,
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'red',
 
     [custom_theme.breakpoints.up(`${custom_theme.breakpoints.values.desktop}`)]: {
       flexDirection: 'row',
@@ -22,18 +26,20 @@ function App() {
 
   return (
     <ThemeProvider theme={custom_theme}>
-      <LayoutContainer 
-        theme={custom_theme} 
-        spacing={0}
-        alignItems="center"
-      >
-        <PageControlContextProvider>
+      <PageControlContextProvider>
+
+        <LayoutContainer 
+          theme={custom_theme} 
+          spacing={0}
+          alignItems="center"
+        >
           <Box sx={styles}>
             <Banner />
             <FormLayout />
           </Box>
-        </PageControlContextProvider>
-      </LayoutContainer>
+        </LayoutContainer>
+
+      </PageControlContextProvider>
   </ThemeProvider>
   );
 }
