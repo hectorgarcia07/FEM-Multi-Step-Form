@@ -1,12 +1,9 @@
 import { useTheme } from '@mui/material/styles';
 import FormContainer from '../containers/FormContainer';
 import SelectPlanForm from './SelectPlanForm';
-import PlanSelection, { initialValues } from '../../YupSchema/planSelection'
 import { styled } from '@mui/material/styles';
-import FormControlButtonContainer from '../containers/FormControlButtonContainer'
 import { usePageValues } from '../../hooks/PageControlContextProvider';
 import PersonalInfoForm from './PersonalInfoForm'; 
-import { Formik } from 'formik';
 
 const FormLayout = () => {
     const theme = useTheme()
@@ -14,10 +11,11 @@ const FormLayout = () => {
     console.log(pageState)
     
     const outerForm = {
-        backgroundColor: `${ theme.colors.neutral.white }`,
+        
         borderRadius: '10px 10px 0 0',
         overflow: 'hidden',
         border: '1px solid transparent',
+        paddingBottom: '8.5rem',
 
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
             paddingLeft: '5rem',
@@ -48,22 +46,11 @@ const FormLayout = () => {
     }
 
     return(
-        <Formik
-            initialValues={initialValues}
-            validationSchema={PlanSelection}
-            onSubmit={( values ) => {
-              console.log(values)
-            }}
-        >
-            {props => (
-                <FormContainer onSubmit={props.handleSubmit}>
-                    <DIV sx={outerForm} >
-                    { renderFormPage() }
-                    </DIV>
-                    <FormControlButtonContainer />  
-                </FormContainer>
-            )}
-        </Formik>
+        <FormContainer>
+            <DIV sx={outerForm} >
+                { renderFormPage() }
+            </DIV>
+        </FormContainer>
     )
 }
 

@@ -1,7 +1,6 @@
 import { styled } from '@mui/material/styles';
-import { Box } from '@mui/system';
 
-const FormContainer = styled('form')(({ theme }) => ({
+const FormContainer = styled('div')(({ theme }) => ({
     position : 'relative', 
     display: 'block',
     padding: '0 1rem',

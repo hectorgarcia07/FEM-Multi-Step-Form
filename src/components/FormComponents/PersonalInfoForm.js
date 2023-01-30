@@ -4,18 +4,20 @@ import FormHeader from './FormHeader';
 import InfoParagraph from '../InfoParagraph';
 import CustomInput from './CustomInput';
 import { useFormikContext, Formik, Form, Field } from 'formik';
+import { useTheme } from '@mui/material/styles';
 
 const  PersonalInfoForm = () => {
   const { values } = useFormikContext()
+  const theme = useTheme()
+
   console.log(values)
 
   const innerForm = {
-    padding: '2rem 1rem',
+    padding: '2rem 1rem 0.5rem 1rem',
     maxWidth: '21rem',
     margin: '0 auto',
     position: 'relative',
-    paddingBottom: '10rem',
-
+    backgroundColor: `${ theme.colors.neutral.white }`,
   }
 
   return (
