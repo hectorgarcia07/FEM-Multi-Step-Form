@@ -1,6 +1,9 @@
 import { styled } from '@mui/material/styles';
+import { usePageValues } from '../hooks/PageControlContextProvider';
 
 const Banner = () => {
+    const [ pageState, dispatch] = usePageValues()
+
     const StepLabel = styled('div')(({ theme }) => ({
         color: theme.colors.neutral.magnolia,
         fontSize: '0.7rem',
@@ -59,7 +62,11 @@ const Banner = () => {
 
         alignItems: 'center',
         fontWeight: '900',
-        color: 'white'
+        
+        [`&#page-${pageState}-form`]: {
+            color: 'white',
+            backgroundColor: 'green'
+        }
     }));
 
     const ListContainer = styled('div')(({ theme }) => ({
@@ -70,28 +77,28 @@ const Banner = () => {
         <ListContainer >
             <UnorderedList>
                 <ListItem>
-                    <ListNumber>1</ListNumber>
+                    <ListNumber id='page-0-form'>1</ListNumber>
                     <ListInfo>
                         <StepLabel>STEP 1</StepLabel>
                         <StepInfo>YOUR INFO</StepInfo>
                     </ListInfo>
                 </ListItem>
                 <ListItem>
-                    <ListNumber>2</ListNumber>
+                    <ListNumber id='page-1-form'>2</ListNumber>
                     <ListInfo>
                         <StepLabel>STEP 2</StepLabel>
                         <StepInfo>SELECT PLAN</StepInfo>
                     </ListInfo>
                 </ListItem>
                 <ListItem>
-                    <ListNumber>3</ListNumber>
+                    <ListNumber id='page-2-form'>3</ListNumber>
                     <ListInfo>
                         <StepLabel>STEP 3</StepLabel>
                         <StepInfo>ADD-ONDS</StepInfo>
                     </ListInfo>
                 </ListItem>
                 <ListItem>
-                    <ListNumber>4</ListNumber>
+                    <ListNumber id='page-3-form'>4</ListNumber>
                     <ListInfo>
                         <StepLabel>STEP 4</StepLabel>
                         <StepInfo>SUMMARY</StepInfo>

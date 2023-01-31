@@ -15,7 +15,7 @@ const FormLayout = () => {
         borderRadius: '10px 10px 0 0',
         overflow: 'hidden',
         border: '1px solid transparent',
-        paddingBottom: '8.5rem',
+        paddingBottom: '8rem',
 
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
             paddingLeft: '5rem',
@@ -47,9 +47,7 @@ const FormLayout = () => {
 
     return(
         <FormContainer>
-            <DIV sx={outerForm} >
-                { renderFormPage() }
-            </DIV>
+            { renderFormPage() }
         </FormContainer>
     )
 }

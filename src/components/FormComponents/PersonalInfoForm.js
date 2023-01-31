@@ -1,27 +1,19 @@
 import * as React from 'react';
-import FormControl from '@mui/material/FormControl';
 import FormHeader from './FormHeader';
 import InfoParagraph from '../InfoParagraph';
 import CustomInput from './CustomInput';
 import { useFormikContext, Formik, Form, Field } from 'formik';
-import { useTheme } from '@mui/material/styles';
+import FormControlContainer from './FormControlContainer';
 
 const  PersonalInfoForm = () => {
   const { values } = useFormikContext()
-  const theme = useTheme()
-
-  console.log(values)
 
   const innerForm = {
-    padding: '2rem 1rem 0.5rem 1rem',
-    maxWidth: '21rem',
-    margin: '0 auto',
-    position: 'relative',
-    backgroundColor: `${ theme.colors.neutral.white }`,
+    marginBottom: '8rem',
   }
 
   return (
-    <FormControl sx={innerForm}>
+    <FormControlContainer sx={innerForm}>
       <FormHeader id="plan-selection-label" >
         Personal info
       </FormHeader>
@@ -52,7 +44,7 @@ const  PersonalInfoForm = () => {
         placeholder="e.g. +1 234 567 890"
         maxLength={15}
       />
-    </FormControl>
+    </FormControlContainer>
   );
 }
 
