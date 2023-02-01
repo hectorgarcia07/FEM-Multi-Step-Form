@@ -1,5 +1,4 @@
 import { Box } from '@mui/system';
-import Button from '@material-ui/core/Button';
 import { usePageValues } from '../../hooks/PageControlContextProvider';
 import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
@@ -15,11 +14,19 @@ const FormControlButtonContainer = () => {
         padding: '0.5rem 1rem',
         display: 'flex',
         width: '100%',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+
+        [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+            padding: '1rem 0'
+        },
     }
 
     const BackButton = styled('button')(({ theme }) => ({
-        visibility: `${ pageState.curr_form_page ? '' : 'hidden' }`
+        visibility: `${ pageState.curr_form_page ? '' : 'hidden' }`,
+
+        ['&:hover']: {
+            cursor: 'pointer'
+        }
     }));
 
     const NextButton = styled('button')(({ theme }) => ({
@@ -27,7 +34,17 @@ const FormControlButtonContainer = () => {
         color: `${ theme.colors.neutral.white }`,
         backgroundColor: `${ theme.colors.primary.marine_blue }`,
         fontWeight: '600',
-        borderRadius: '5px'
+        borderRadius: '5px',
+
+        ['&:hover']: {
+            cursor: 'pointer'
+        },
+
+        [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+            padding: '0.9rem 2rem',
+            borderRadius: '10px',
+            fontSize: '1rem'
+        },
     }));
 
     return (

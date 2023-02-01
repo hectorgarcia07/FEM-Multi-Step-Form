@@ -2,14 +2,18 @@ import * as React from 'react';
 import FormHeader from './FormHeader';
 import InfoParagraph from '../InfoParagraph';
 import CustomInput from './CustomInput';
-import { useFormikContext, Formik, Form, Field } from 'formik';
 import FormControlContainer from './FormControlContainer';
+import { useTheme } from '@mui/material';
 
 const  PersonalInfoForm = () => {
-  const { values } = useFormikContext()
+  const theme = useTheme()
 
   const innerForm = {
-    marginBottom: '8rem',
+    marginBottom: '6rem',
+
+    [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
+      marginBottom: '0'
+    }
   }
 
   return (
@@ -27,7 +31,6 @@ const  PersonalInfoForm = () => {
         type='text'
         placeholder="e.g. Stephen King"
         maxLength={28}
-        sx={{ paddingTop: '1rem' }}
       />
       <CustomInput
       required

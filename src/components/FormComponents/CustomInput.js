@@ -12,22 +12,22 @@ const Input = styled(InputUnstyled)(
     return (`
   .${inputUnstyledClasses.input} {
     width: 100%;
-    font-size: 0.875rem;
-    font-family: black;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.5;
     border: 1px solid ${ theme.colors.neutral.light_gray };
     border-radius: 8px;
-    padding: 0.5rem;
+    padding: 0.7rem;
     padding-left: 1rem;
-    margin-bottom: 1rem;
+    color: ${ theme.colors.primary.marine_blue };
+
     &[aria-invalid="true"]{
       border: 1px solid red;
       font-size: 20;
     }
     &::placeholder { /* Most modern browsers support this now. */
       color: dark-grey;
-
+      font-weight: 300
     }
     &:focus {
       outline: 1px solid ${ theme.colors.primary.purplish_blue };
@@ -96,7 +96,7 @@ function CustomInput({ label, placeholder, maxLength, sx, ...props }) {
   }
   
   return (
-    <FormControl  error={!!errorText} {...field} sx={sx}>
+    <FormControl  error={!!errorText} {...field} sx={{ paddingBottom: '1.5rem' }}>
       <Box sx={style}>
           <Label htmlFor={props.name} error={!!errorText}>{label} </Label>
           <HelperText errorText={errorText} />

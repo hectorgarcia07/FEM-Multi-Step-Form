@@ -7,7 +7,7 @@ const LayoutContainer = styled(Grid)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     minHeight: '100vh',
-    backgroundColor: `${custom_theme.colors.neutral.alabaster}`,
+    backgroundColor: `${custom_theme.colors.neutral.magnolia}`,
 
 }));
 

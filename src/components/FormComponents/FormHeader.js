@@ -7,6 +7,11 @@ const FormHeader = styled(FormControlUnstyled)(({ theme }) => ({
     color: `${ theme.colors.primary.marine_blue }`,
     '&:focus': {
         color: 'yellow'
+    },
+
+    [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
+        
+        fontSize: '2rem'
     }
 }));
 
