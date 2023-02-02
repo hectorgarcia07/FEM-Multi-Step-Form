@@ -15,8 +15,8 @@ export const initialValues = {
     name: '',
     email: '',
     phone: '',
-    plan: '',
-    planLength: true,
+    plan: 'arcade',
+    planLength: false,
     addOns: []
   }
 

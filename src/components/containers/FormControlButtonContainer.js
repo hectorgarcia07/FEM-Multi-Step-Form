@@ -7,11 +7,9 @@ const FormControlButtonContainer = () => {
     const [ pageState, dispatch] = usePageValues()
     const theme = useTheme()
 
-    console.log( pageState.curr_form_page )
-
     const styles = {
         backgroundColor: `${ theme.colors.neutral.white }`,
-        padding: '0.5rem 1rem',
+        padding: '0.5rem 0rem',
         display: 'flex',
         width: '100%',
         justifyContent: 'space-between',
@@ -21,20 +19,9 @@ const FormControlButtonContainer = () => {
         },
     }
 
-    const BackButton = styled('button')(({ theme }) => ({
-        visibility: `${ pageState.curr_form_page ? '' : 'hidden' }`,
-
-        ['&:hover']: {
-            cursor: 'pointer'
-        }
-    }));
-
-    const NextButton = styled('button')(({ theme }) => ({
+    const BaseButton = styled('button')(({ theme }) => ({
         padding: '0.7rem 1rem',
-        color: `${ theme.colors.neutral.white }`,
-        backgroundColor: `${ theme.colors.primary.marine_blue }`,
         fontWeight: '600',
-        borderRadius: '5px',
 
         ['&:hover']: {
             cursor: 'pointer'
@@ -47,20 +34,30 @@ const FormControlButtonContainer = () => {
         },
     }));
 
+    const BackButton = styled(BaseButton)(({ theme }) => ({
+        visibility: `${ pageState.curr_form_page ? '' : 'hidden' }`,
+
+        border: 'none',
+        color: `${ theme.colors.neutral.cool_gray }`
+    }));
+
+    const NextButton = styled(BaseButton)(({ theme }) => ({
+        color: `${ theme.colors.neutral.white }`,
+        backgroundColor: `${ theme.colors.primary.marine_blue }`,
+        borderRadius: '5px',
+
+    }));
+
     return (
         <Box sx={styles}>
             <BackButton 
-                color="primary" 
-                variant="contained" 
                 type="button"
                 onClick={ () => dispatch( { type: 'PREV_FORM_PAGE' } ) }
             >
-                Back
+                Go Back
             </BackButton>
 
             <NextButton 
-                color="primary" 
-                variant="contained" 
                 type="button"
                 onClick={ () => dispatch( { type: 'NEXT_FORM_PAGE' } ) }
             >

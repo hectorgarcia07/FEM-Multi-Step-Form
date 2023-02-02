@@ -2,6 +2,8 @@ import * as React from 'react';
 import { styled } from '@mui/system';
 import SwitchUnstyled, { switchUnstyledClasses } from '@mui/base/SwitchUnstyled';
 import { useSwitch } from '@mui/base/SwitchUnstyled';
+import { useFormikContext } from 'formik';
+import { useTheme } from '@mui/material';
 
 const grey = {
   400: '#8c959f',
@@ -82,33 +84,53 @@ const Root = styled('span')(
 
 const SwitchInfoLabel = styled('div')(
     ({ theme, color }) => `
-
     `
 )
 
 const SwitchLabelContainer = styled('div')(
-    ({ theme }) => `
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    `
-)
+    ({ theme }) => ({
+      marginBottom: '1rem',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+
+      [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+        marginTop: '3rem'
+      }
+
+    }))
 
 export default function UnstyledSwitches(props) {
-    const label = { 
-      slotProps: { 
-        input: { 'aria-label': 'Plan Selection', 'name': 'planType' },
-      },
-    };
-    const checked = useSwitch(props)
+  const { values,setFieldValue } = useFormikContext()
+  const theme = useTheme()
+  console.log(values.planLength)
 
-    return (
-      <SwitchLabelContainer>
-        <SwitchInfoLabel color={checked}>Monthly</SwitchInfoLabel>
-        <SwitchUnstyled component={Root} {...label} defaultChecked />
-        <SwitchInfoLabel color={checked}>Yearly</SwitchInfoLabel>
-      </SwitchLabelContainer>
-    );
+  const label = { 
+    slotProps: { 
+      input: { 'aria-label': 'Plan Selection', 'name': 'planLength' },
+    },
+  };
+
+  const style = {
+    color:` ${ !values.planLength ? theme.colors.primary.marine_blue : theme.colors.neutral.cool_gray  }`
   }
+
+  const style1 = {
+    color:` ${ values.planLength ? theme.colors.primary.marine_blue : theme.colors.neutral.cool_gray  }`
+  }
+
+  return (
+    <SwitchLabelContainer>
+      <SwitchInfoLabel sx={style}>Monthly</SwitchInfoLabel>
+      <SwitchUnstyled 
+        component={Root} 
+        {...label} 
+        checked={values.planLength} 
+        name='planLength' 
+        onChange={(event) => setFieldValue('planLength', event.currentTarget.checked)}
+       />
+      <SwitchInfoLabel sx={style1}>Yearly</SwitchInfoLabel>
+    </SwitchLabelContainer>
+  );
+}

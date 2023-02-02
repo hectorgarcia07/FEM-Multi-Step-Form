@@ -15,7 +15,6 @@ function App() {
   const styles = {
     display: 'flex',
     flexDirection: 'column',
-    borderRadius: '10px',
     alignItems: 'center',
     position: 'relative',
     backgroundImage: `url(${ custom_theme.backgroundImg.mobile })`,
@@ -27,7 +26,8 @@ function App() {
       flexDirection: 'row',
       alignItems: 'flex-start',
       backgroundColor: `${ custom_theme.colors.neutral.white }`,
-
+      borderRadius: '10px',
+      maxWidth: '100%'
     },
   }
 
@@ -53,12 +53,12 @@ function App() {
 
   const styles3 = {
     border: '1px solid black',
-    borderRadius: '10px',
 
     [custom_theme.breakpoints.up(`${custom_theme.breakpoints.values.desktop}`)]: {
       padding: '1rem', 
       backgroundColor: 'white',
       border: 'none',
+      borderRadius: '10px',
     },
   }
 

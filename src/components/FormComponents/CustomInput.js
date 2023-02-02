@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FormControl from '@mui/material/FormControl';
+import FormControlUnstyled from '@mui/base/FormControlUnstyled';
 import { Box, useTheme } from '@mui/material';
 import InputUnstyled, { inputUnstyledClasses } from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
@@ -86,6 +86,12 @@ const HelperText = styled((props) => {
   `);
 })
 
+const CustomFormControl = styled(FormControlUnstyled)(
+  ({ theme }) => `
+    padding-bottom: 1.5rem;
+  `
+)
+
 function CustomInput({ label, placeholder, maxLength, sx, ...props }) {
   const [field, meta] = useField(props);
   const errorText = meta.error && meta.touched ? meta.error : "";
@@ -94,9 +100,11 @@ function CustomInput({ label, placeholder, maxLength, sx, ...props }) {
     justifyContent: 'space-between',
     marginBottom: '0.3rem',
   }
+
+  console.log("props", props)
   
   return (
-    <FormControl  error={!!errorText} {...field} sx={{ paddingBottom: '1.5rem' }}>
+    <CustomFormControl  error={!!errorText} {...field}>
       <Box sx={style}>
           <Label htmlFor={props.name} error={!!errorText}>{label} </Label>
           <HelperText errorText={errorText} />
@@ -107,7 +115,7 @@ function CustomInput({ label, placeholder, maxLength, sx, ...props }) {
         id={props.name}
         slotProps={{ input: { maxLength } }}
       />
-    </FormControl>
+    </CustomFormControl>
   );
 }
 

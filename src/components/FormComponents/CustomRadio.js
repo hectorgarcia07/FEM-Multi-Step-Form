@@ -12,7 +12,11 @@ const CustomRadio = styled(({ icon, ...props }) => {
     return ({
         padding: '0',
         marginRight: '1rem',
-        color: `${ theme.colors.primary.marine_blue }`,        
+        color: `${ theme.colors.primary.marine_blue }`,    
+        
+        [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+            paddingBottom: '3rem',
+        }
     })
 });
 
