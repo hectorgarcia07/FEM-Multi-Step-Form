@@ -12,24 +12,29 @@ import { Box } from '@mui/material';
 
 function App() {
 
-  const styles = {
+  const Form = styled('form')(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     position: 'relative',
-    backgroundImage: `url(${ custom_theme.backgroundImg.mobile })`,
+    backgroundImage: `url(${ theme.backgroundImg.mobile })`,
     backgroundRepeat: 'no-repeat',
     maxWidth: '57rem',
     padding: '0 1rem',
 
-    [custom_theme.breakpoints.up(`${custom_theme.breakpoints.values.desktop}`)]: {
+    [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
+      backgroundImage: `url(${ theme.backgroundImg.desktop })`,
+      backgroundColor: `${ theme.colors.neutral.white }`,
       flexDirection: 'row',
       alignItems: 'flex-start',
-      backgroundColor: `${ custom_theme.colors.neutral.white }`,
       borderRadius: '10px',
       maxWidth: '100%'
-    },
-  }
+    }
+  }));
+
+  const BorderContainer = styled('form')(({ theme }) => ({
+    
+  }));
 
   const styles2 = {
 
@@ -43,13 +48,6 @@ function App() {
       justifyContent: 'space-between'
     }
   }
-
-  const Form = styled('form')(({ theme }) => ({
-    display: 'flex',
-    [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
-      backgroundImage: `url(${ custom_theme.backgroundImg.desktop })`,
-    }
-  }));
 
   const styles3 = {
     border: '1px solid black',
@@ -80,7 +78,7 @@ function App() {
             
             {props => (
               <Box sx={styles3}>
-                <Form sx={styles}>
+                <Form>
                   <Banner />
                   <Box sx={styles2}>
                     <FormLayout />
