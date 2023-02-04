@@ -59,7 +59,11 @@ const FormControlButtonContainer = () => {
 
             <NextButton 
                 type="button"
-                onClick={ () => dispatch( { type: 'NEXT_FORM_PAGE' } ) }
+                onClick={ () => { 
+                    dispatch( { type: 'NEXT_FORM_PAGE' } ) 
+                    console.log('Next button clicked')
+                }
+            }
             >
                 Next Step
             </NextButton>

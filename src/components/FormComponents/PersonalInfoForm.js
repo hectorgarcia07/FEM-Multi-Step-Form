@@ -6,7 +6,7 @@ import FormControlContainer from './FormControlContainer';
 import { useTheme } from '@mui/material';
 import { useFormikContext } from 'formik';
 
-const  PersonalInfoForm = () => {
+const PersonalInfoForm = () => {
   const theme = useTheme()
   const { values } = useFormikContext()
   console.log(values)

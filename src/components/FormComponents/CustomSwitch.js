@@ -102,9 +102,8 @@ const SwitchLabelContainer = styled('div')(
     }))
 
 export default function UnstyledSwitches(props) {
-  const { values,setFieldValue } = useFormikContext()
+  const { values, setFieldValue } = useFormikContext()
   const theme = useTheme()
-  console.log(values.planLength)
 
   const label = { 
     slotProps: { 

@@ -72,10 +72,9 @@ function App() {
             initialValues={initialValues}
             validationSchema={PlanSelection}
             onSubmit={( values ) => {
-              console.log(values)
+              console.log('Submitted', values)
             }}
           >
-            
             {props => (
               <Box sx={styles3}>
                 <Form>
