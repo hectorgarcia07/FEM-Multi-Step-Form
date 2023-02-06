@@ -25,7 +25,6 @@ const Description = ({ title, price}) => {
 function SelectPlanForm() {
   const theme = useTheme()
   const { values, setFieldValue } = useFormikContext()
-  console.log(values)
 
   const innerForm = {
     marginBottom: '4rem',

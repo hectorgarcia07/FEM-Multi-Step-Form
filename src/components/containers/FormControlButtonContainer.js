@@ -35,7 +35,6 @@ const FormControlButtonContainer = () => {
     }));
 
     const BackButton = styled(BaseButton)(({ theme }) => ({
-        visibility: `${ pageState.curr_form_page ? '' : 'hidden' }`,
 
         border: 'none',
         color: `${ theme.colors.neutral.cool_gray }`
@@ -53,6 +52,7 @@ const FormControlButtonContainer = () => {
             <BackButton 
                 type="button"
                 onClick={ () => dispatch( { type: 'PREV_FORM_PAGE' } ) }
+                name={'Back-Button'}
             >
                 Go Back
             </BackButton>
@@ -60,6 +60,7 @@ const FormControlButtonContainer = () => {
             <NextButton 
                 type="button"
                 onClick={ () => dispatch( { type: 'NEXT_FORM_PAGE' } ) }
+                name={'Next-Button'}
             >
                 Next Step
             </NextButton>

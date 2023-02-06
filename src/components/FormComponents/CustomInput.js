@@ -100,8 +100,6 @@ function CustomInput({ label, placeholder, maxLength, sx, ...props }) {
     justifyContent: 'space-between',
     marginBottom: '0.3rem',
   }
-
-  console.log("props", props)
   
   return (
     <CustomFormControl  error={!!errorText} {...field}>

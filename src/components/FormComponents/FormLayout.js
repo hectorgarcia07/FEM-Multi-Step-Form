@@ -5,7 +5,6 @@ import PersonalInfoForm from './PersonalInfoForm';
 
 const FormLayout = () => {
     const [ pageState, dispatch] = usePageValues()
-    console.log(pageState)
 
     const renderFormPage = () => {
         switch(pageState.curr_form_page) {
