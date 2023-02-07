@@ -7,13 +7,16 @@ import { useTheme } from '@mui/material';
 import { useFormikContext } from 'formik';
 import Button from '@mui/material/Button';
 import NewPersonalInfoForm from './NewPersonalInfoForm';
+import { Field } from 'formik';
 
 const  PersonalInfoForm = () => {
   const theme = useTheme()
-  const { values, touched, errors, ...formikContext } = useFormikContext()
+  const { values, touched, errors, handleBlur, ...formikContext } = useFormikContext()
 
   console.log( formikContext )
-  console.log(values, touched, errors)
+  console.log("TOuched and errors", touched, errors)
+  console.log('Error state', 'email' in touched && 'email' in errors )
+  console.log()
 
   const innerForm = {
     marginBottom: '6rem',
@@ -41,33 +44,35 @@ const  PersonalInfoForm = () => {
       <InfoParagraph>
         Please provide your name, email address, and phone number.
       </InfoParagraph>
-      <NewPersonalInfoForm
-        id="email"
-        name="email"
-        label="Email"
-        value={values.email}
-        onChange={formikContext.handleChange}
-        error={touched.email && Boolean(errors.email)}
-        helperText={touched.email && errors.email}
-      />
-      <CustomInput
-        required
-        label="Name"
+
+      <Field 
         name="name"
-        type='text'
-        placeholder="e.g. Stephen King"
-        maxLength={28}
-        value={ values.name }
+        id="name"
+        placeholder="e.g. Stephen King" 
+        label="Name"
+
+        component={NewPersonalInfoForm} 
       />
-      
-      <CustomInput
-        label="Phone Number"
+
+      <Field 
+        name="email"
+        id="email"
+        placeholder="e.g. stephenking@lorem.com" 
+        label="Email"
+
+        component={NewPersonalInfoForm} 
+      />
+
+      <Field 
         name="phone"
-        type='text'
-        placeholder="e.g. +1 234 567 890"
+        id="phone"
+        placeholder="e.g. +1 234 567 890" 
+        label="Phone"
         maxLength={15}
-        value={ values.phone }
+
+        component={NewPersonalInfoForm} 
       />
+
 
       <Button>
 

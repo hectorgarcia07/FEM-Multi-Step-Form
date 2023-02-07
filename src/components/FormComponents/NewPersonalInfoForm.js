@@ -1,25 +1,13 @@
 import FormControlUnstyled from '@mui/base/FormControlUnstyled';
 import FormHelperText from '@mui/material/FormHelperText';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import { useFormikContext } from 'formik';
+import InputUnstyled from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 import { Box } from '@mui/material';
-
-/*
-    id="email"
-    name="email"
-    label="Email"
-    value={formik.values.email}
-    onChange={formik.handleChange}
-    error={formik.touched.email && Boolean(formik.errors.email)}
-    helperText={formik.touched.email && formik.errors.email}
-*/
+import clsx from 'clsx';
 
 const CustomFormControl = styled(FormControlUnstyled)(
     ({ theme }) => ({
         paddingBottom: '1.5rem'
-
     })
 )
 
@@ -28,17 +16,7 @@ const InputLabelContainer = styled(Box)(
         display: 'flex',
         justifyContent: 'space-between',
         marginBottom: '0.3rem',
-    })
-)
-
-const InputLabelDetails = styled(InputLabel)(
-    ({ theme }) => ({
-        fontSize: `0.8rem`,
-        color: `${ theme.colors.primary.purplish_blue }`,
-
-        '& .Mui-error': {
-            color: `${ theme.colors.primary.strawberry_red }`
-        }
+        alignItems: 'flex-start'
     })
 )
 
@@ -56,23 +34,40 @@ const HelperText = styled(FormHelperText)(
     })
 )
 
-const CustomInput = styled(Input)(
+const InputLabelDetails = styled(
+    ({ children, className, error }) => {
+        console.log('SS',error)
+      return (
+        <p className={clsx(className, error ? 'invalid' : '')}>
+          {children}
+        </p>
+      );
+    },
+  )(
+    ({ theme }) => ({
+        fontSize: `0.8rem`,
+        color: `${ theme.colors.primary.purplish_blue }`,
+
+        '&.invalid': {
+            color: `${ theme.colors.primary.strawberry_red }`
+        }
+    })
+)
+
+const CustomInput = styled('input')(
     ({ theme }) => ({
         width: '100%',
         fontSize: '1rem',
         fontWeight: '600',
-        lineHeight: '1.5',
         border: `1px solid ${ theme.colors.neutral.light_gray }`,
         borderRadius: '8px',
         padding: '0.7rem',
         paddingLeft: '1rem',
         color: `${ theme.colors.primary.marine_blue }`,
 
-        '& .Mui-error': {
+        '&[aria-invalid*="true"]': {
             border: '1px solid red',
-
         },
-
         [`&::placeholder`]: {
             color: 'dark-grey',
             fontWeight: '300'
@@ -86,22 +81,23 @@ const CustomInput = styled(Input)(
       
         }
     }))
+    
 
-const NewPersonalInfoForm = ({id, name, label, value, onChange, error, helperText}) => {
-
+const NewPersonalInfoForm = ({ field, form: { touched, errors }, ...props }) => {
+    console.log("field", props)
+    const error = [field.name] in touched && [field.name] in errors
     return (
-        <CustomFormControl error={error} >
+        <CustomFormControl { ...field } error={ error } >
             <InputLabelContainer>
-                <InputLabelDetails htmlFor={id} >{label}</InputLabelDetails>
-                <HelperText id="component-error-text">{helperText}</HelperText>
+                <InputLabelDetails htmlFor={field.name}  error={ error }>{props.label}</InputLabelDetails>
+                <HelperText id="component-error-text">{errors[field.name]}</HelperText>
             </InputLabelContainer>
 
-            <CustomInput
-                id={id}
+            <InputUnstyled
+                {...props}
+                maxLength={3}
+                slots={{ input: CustomInput }}
                 aria-describedby="component-error-text"
-                value={value}
-                onChange={onChange}
-                name={name}
             />
       </CustomFormControl>
     )
