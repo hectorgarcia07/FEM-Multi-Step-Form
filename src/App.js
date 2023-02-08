@@ -70,6 +70,7 @@ function App() {
         >
           <Formik
             initialValues={initialValues}
+            validateOnMount={true}
             validationSchema={PlanSelection}
             onSubmit={( values ) => {
               console.log(values)

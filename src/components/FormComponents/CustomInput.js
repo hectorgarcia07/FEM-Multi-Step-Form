@@ -41,7 +41,7 @@ const Input = styled(InputUnstyled)(
       border: 1px solid red;
       outline: 1px solid red;
       border-radius: 5px;
-    }
+    }maxLength
   }
 `)},
 );
@@ -100,6 +100,8 @@ function CustomInput({ label, placeholder, maxLength, sx, ...props }) {
     justifyContent: 'space-between',
     marginBottom: '0.3rem',
   }
+
+  console.log('ddd', props)
   
   return (
     <CustomFormControl  error={!!errorText} {...field}>
@@ -111,7 +113,7 @@ function CustomInput({ label, placeholder, maxLength, sx, ...props }) {
         placeholder={placeholder}
         name={props.name}
         id={props.name}
-        slotProps={{ input: { maxLength } }}
+        slotProps={{ input: { maxLength: maxLength } }}
       />
     </CustomFormControl>
   );
