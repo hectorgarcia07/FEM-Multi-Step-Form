@@ -8,7 +8,7 @@ const FormControlContainer = styled(FormControlUnstyled)(({ theme }) => ({
     margin: '0 auto',
     backgroundColor: `${ theme.colors.neutral.white }`,
     position: 'relative',
-    padding: '2rem 1rem 0.5rem 1rem',
+    padding: '2rem 1.5rem',
     
     [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
       display: 'flex',

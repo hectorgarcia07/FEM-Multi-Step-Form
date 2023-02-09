@@ -2,6 +2,7 @@ import FormContainer from '../containers/FormContainer';
 import SelectPlanForm from './SelectPlanForm';
 import { usePageValues } from '../../hooks/PageControlContextProvider';
 import PersonalInfoForm from './PersonalInfoForm'; 
+import PickAddOns from './PickAddOns/PickAddOns';
 
 const FormLayout = () => {
     const [ pageState, dispatch] = usePageValues()
@@ -9,11 +10,11 @@ const FormLayout = () => {
     const renderFormPage = () => {
         switch(pageState.curr_form_page) {
             case 0:
-                return <PersonalInfoForm />
+                return <PickAddOns /> 
             case 1: 
-                return <SelectPlanForm />
+                return <SelectPlanForm /> 
             case 2:
-                return <div>Page three</div>
+                return <PersonalInfoForm />
             case 3:
                 return <div>Page four</div>
             default:

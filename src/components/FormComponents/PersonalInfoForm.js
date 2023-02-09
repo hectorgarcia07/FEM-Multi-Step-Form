@@ -12,7 +12,7 @@ const  PersonalInfoForm = () => {
   const { values, touched, errors, handleBlur, ...formikContext } = useFormikContext()
 
   const innerForm = {
-    marginBottom: '6rem',
+    marginBottom: '4rem',
 
     [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
       marginBottom: '0'
@@ -41,7 +41,7 @@ const  PersonalInfoForm = () => {
         name="email"
         id="email"
         placeholder="e.g. stephenking@lorem.com" 
-        label="Email"
+        label="Email Address"
 
         component={CustomInputField} 
       />
@@ -50,7 +50,7 @@ const  PersonalInfoForm = () => {
         name="phone"
         id="phone"
         placeholder="e.g. +1 234 567 890" 
-        label="Phone"
+        label="Phone Number"
         maxLength={15}
 
         component={CustomInputField} 

@@ -11,13 +11,25 @@ import FormControlContainer from './FormControlContainer';
 import { useFormikContext } from 'formik';
 import { styled } from '@mui/material/styles';
 
-const Description = ({ title, price}) => {
+const Description = ({ title, gamingPlan, name }) => {
   const theme = useTheme()
+  const { values, setFieldValue } = useFormikContext()
+  console.log('values', values)
 
   return (
-    <Box>
+    <Box  >
       <Box sx={{ color: theme.colors.primary.marine_blue, fontWeight: '900' }}>{ title }</Box>
-      <Box sx={{ color: theme.colors.neutral.cool_gray }}>{ price }</Box>
+      <Box sx={{ color: theme.colors.neutral.cool_gray }}>
+        { values.planLength ? `${gamingPlan.yearly[name]}`: `${gamingPlan.monthly[name]}` }
+      </Box>
+      { values.planLength 
+        ? 
+        <Box sx={{ color: theme.colors.primary.marine_blue, fontSize: '0.8rem' }}>
+          2 months free
+        </Box>
+        :
+        null
+      }
     </Box>
   )
 }
@@ -26,8 +38,20 @@ function SelectPlanForm() {
   const theme = useTheme()
   const { values, setFieldValue } = useFormikContext()
 
+  const gamingPlan = {
+    monthly: {
+      arcade: '$9/mo',
+      advanced: '$12/mo',
+      pro: '$15/mo'
+    },
+    yearly: {
+      arcade: '$90/yr',
+      advanced: '$120/ry',
+      pro: '$150/yr'
+    }
+  }
+
   const innerForm = {
-    marginBottom: '4rem',
 
     [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
       marginBottom: '0'
@@ -35,10 +59,15 @@ function SelectPlanForm() {
   }
 
   const RadioGroupContainer = styled(RadioGroup)(({ theme }) => ({
+    margin: '0',
+
+    "label:not(:last-child)": {
+      marginBottom: '0.5rem'
+    },
     
     [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
       flexDirection: 'row',
-      flexWrap: 'inherit'
+      flexWrap: 'inherit',
     },
   }));
 
@@ -60,9 +89,9 @@ function SelectPlanForm() {
           setFieldValue('plan', event.currentTarget.value)
         }}
       >
-        <RadioContainer value="arcade" control={<CustomRadio icon={ theme.icons.arcade }/>} label={<Description title={"Arcade"} price={"$9/mo"}  />} />
-        <RadioContainer value="advanced" control={<CustomRadio icon={ theme.icons.advanced } />} label={<Description title={"Advanced"} price={"$12/mo"} />} />
-        <RadioContainer value="pro" control={<CustomRadio icon={ theme.icons.pro }/>} label={<Description title={"Pro"} price={"$15/mo"} />} />
+        <RadioContainer value="arcade" control={<CustomRadio icon={ theme.icons.arcade }/>} label={<Description title={"Arcade"} gamingPlan={gamingPlan} name="arcade" />} />
+        <RadioContainer value="advanced" control={<CustomRadio icon={ theme.icons.advanced } />} label={<Description title={"Advanced"} gamingPlan={gamingPlan} name="advanced" />} />
+        <RadioContainer value="pro" control={<CustomRadio icon={ theme.icons.pro }/>} label={<Description title={"Pro"} gamingPlan={gamingPlan} name="pro" />} />
       </RadioGroupContainer>
 
       <CustomSwitch  />

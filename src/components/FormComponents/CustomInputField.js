@@ -6,7 +6,13 @@ import clsx from 'clsx';
 
 const CustomFormControl = styled(FormControlUnstyled)(
     ({ theme }) => ({
-        paddingBottom: '1.5rem'
+        paddingBottom: '1.5rem',
+
+        [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+            "&:not(:last-child)": {
+                marginBottom: '1rem'
+            },
+        },
     })
 )
 

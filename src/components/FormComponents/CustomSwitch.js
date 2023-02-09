@@ -11,14 +11,14 @@ const grey = {
   600: '#00ff00',
 };
 
-const Root = styled('span')(
+const CustomSwitch = styled('span')(
   ({ theme }) => `
   font-size: 0;
   position: relative;
   display: inline-block;
   width: 40px;
   height: 20px;
-  margin: 0 1.3rem;
+  
   cursor: pointer;
 
   &.${switchUnstyledClasses.disabled} {
@@ -80,12 +80,16 @@ const Root = styled('span')(
     margin: 0;
   }
   `,
-);
-
-const SwitchInfoLabel = styled('div')(
-    ({ theme, color }) => `
-    `
 )
+
+const SwitchInfoLabel = styled('div')(({ theme }) => ({
+  padding: '2.5rem 1rem',
+
+  ['&:hover']: {
+      cursor: 'pointer'
+  }
+
+}));
 
 const SwitchLabelContainer = styled('div')(
     ({ theme }) => ({
@@ -96,7 +100,7 @@ const SwitchLabelContainer = styled('div')(
       alignItems: 'center',
 
       [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
-        marginTop: '3rem'
+        marginTop: '0.5rem'
       }
 
     }))
@@ -104,6 +108,10 @@ const SwitchLabelContainer = styled('div')(
 export default function UnstyledSwitches(props) {
   const { values,setFieldValue } = useFormikContext()
   const theme = useTheme()
+
+  const updatePlanLength = ( value ) => {
+    setFieldValue('planLength', value)
+  }
 
   const label = { 
     slotProps: { 
@@ -121,15 +129,15 @@ export default function UnstyledSwitches(props) {
 
   return (
     <SwitchLabelContainer>
-      <SwitchInfoLabel sx={style}>Monthly</SwitchInfoLabel>
+      <SwitchInfoLabel sx={style} onClick={() => updatePlanLength(false)} >Monthly</SwitchInfoLabel>
       <SwitchUnstyled 
-        component={Root} 
+        component={CustomSwitch} 
         {...label} 
         checked={values.planLength} 
         name='planLength' 
         onChange={(event) => setFieldValue('planLength', event.currentTarget.checked)}
        />
-      <SwitchInfoLabel sx={style1}>Yearly</SwitchInfoLabel>
+      <SwitchInfoLabel sx={style1} onClick={() => updatePlanLength(true)} >Yearly</SwitchInfoLabel>
     </SwitchLabelContainer>
   );
 }

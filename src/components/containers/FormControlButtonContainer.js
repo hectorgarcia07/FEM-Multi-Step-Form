@@ -18,7 +18,7 @@ const FormControlButtonContainer = () => {
         justifyContent: 'space-between',
 
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
-            padding: '1rem 0'
+            padding: '1rem 0',
         },
     }
 

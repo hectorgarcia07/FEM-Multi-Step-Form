@@ -8,16 +8,21 @@ const RadioContainer = styled(FormControlLabel)(({ theme, value }) => {
 
     return ({
         padding: '1rem',
-        margin: '0.5rem 0',
+        alignItems: 'flex-start',
         color: `${ theme.colors.primary.marine_blue }`,
         border: `1px solid ${ selected ? theme.colors.primary.purplish_blue : theme.colors.neutral.light_gray }`,
         borderRadius: '10px',
+        margin: '0',
+
+        ["&:hover"]: {
+            borderColor: `${ theme.colors.primary.purplish_blue }`
+        },
         
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
             display: 'flex',
             flexDirection: 'column',
             marginRight: '1rem',
-            padding: '1rem 4rem 0rem 1rem',
+            padding: '1rem 4rem 0.5rem 1rem',
             flexWrap: 'none'
         },
     })

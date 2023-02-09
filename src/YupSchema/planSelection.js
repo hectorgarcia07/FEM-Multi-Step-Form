@@ -8,7 +8,7 @@ const PlanSelection = yup.object().shape({
     phone: yup.string().matches(phoneRegExp, 'Format: +1 123 123 1234').required('Format: +1 123 123 1234'),
     plan: yup.string().required('This field is required'),
     planLength: yup.boolean().required(),
-    addOns: yup.array().of(yup.string().required()),
+    addOns: yup.array().of(yup.number()),
 })
 
 export const initialValues = {
