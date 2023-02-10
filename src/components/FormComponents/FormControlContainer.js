@@ -13,8 +13,10 @@ const FormControlContainer = styled(FormControlUnstyled)(({ theme }) => ({
     [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
       display: 'flex',
       maxWidth: '100%',
-      padding: '2.5rem 0rem 0.5rem 1rem',
-      flexDirection: 'column'
+      padding: '0',
+      
+      flexDirection: 'column',
+      
     },
   }));
 

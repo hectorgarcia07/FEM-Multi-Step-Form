@@ -14,7 +14,6 @@ import { styled } from '@mui/material/styles';
 const Description = ({ title, gamingPlan, name }) => {
   const theme = useTheme()
   const { values, setFieldValue } = useFormikContext()
-  console.log('values', values)
 
   return (
     <Box  >
@@ -54,7 +53,7 @@ function SelectPlanForm() {
   const innerForm = {
 
     [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
-      marginBottom: '0'
+      marginBottom: '4rem'
     }
   }
 

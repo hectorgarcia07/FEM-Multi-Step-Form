@@ -18,7 +18,8 @@ const FormControlButtonContainer = () => {
         justifyContent: 'space-between',
 
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
-            padding: '1rem 0',
+            
+
         },
     }
 
@@ -36,7 +37,7 @@ const FormControlButtonContainer = () => {
         },
 
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
-            padding: '0.9rem 2rem',
+            padding: '0.9rem 1.5rem',
             borderRadius: '10px',
             fontSize: '1rem'
         },

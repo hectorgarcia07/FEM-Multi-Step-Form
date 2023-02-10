@@ -10,7 +10,7 @@ const CustomFormControl = styled(FormControlUnstyled)(
 
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
             "&:not(:last-child)": {
-                marginBottom: '1rem'
+                
             },
         },
     })
@@ -56,7 +56,11 @@ const InputLabelDetails = styled(
 
         '&.invalid': {
             color: `${ theme.colors.primary.strawberry_red }`
-        }
+        },
+
+        [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+            paddingBottom: '0.5rem'
+        },
     })
 )
 
@@ -90,7 +94,6 @@ const CustomInput = styled('input')(
 
 const CustomInputField = ({ field, form: { touched, errors }, ...props }) => {
     const error = ([field.name] in touched ) && ([field.name] in errors)
-    console.log('ddd', props)
 
     return (
         <CustomFormControl { ...field } error={ error } >

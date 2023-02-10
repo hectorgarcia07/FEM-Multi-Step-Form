@@ -32,20 +32,16 @@ function App() {
     }
   }));
 
-  const BorderContainer = styled('form')(({ theme }) => ({
-    
-  }));
-
   const styles2 = {
 
     [custom_theme.breakpoints.up( `${ custom_theme.breakpoints.values.desktop }` )]: {
-      paddingRight: '5rem',
-      paddingLeft: '6.5rem',
+      
       width: '100%',
       height: '568px',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
+      padding: '2.5rem 4rem 0rem 6.3rem',
     }
   }
 
@@ -57,6 +53,8 @@ function App() {
       backgroundColor: 'white',
       border: 'none',
       borderRadius: '10px',
+      maxWidth: "932px",
+      width: "100%"
     },
   }
 

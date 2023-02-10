@@ -21,9 +21,14 @@ const RadioContainer = styled(FormControlLabel)(({ theme, value }) => {
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
             display: 'flex',
             flexDirection: 'column',
-            marginRight: '1rem',
-            padding: '1rem 4rem 0.5rem 1rem',
-            flexWrap: 'none'
+            
+            maxWidth: '138px',
+            flexWrap: 'none',
+            width: "100%",
+
+            "&:not(:last-child)": {
+                marginRight: '1rem',
+              },
         },
     })
 }); 

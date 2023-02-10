@@ -1,7 +1,5 @@
 const FormStepReducer = (state, action) => {
     const curr_state = state.curr_form_page
-
-    console.log("Current state frm reducer", curr_state)
     
     switch ( action.type ) {
         case 'NEXT_FORM_PAGE':

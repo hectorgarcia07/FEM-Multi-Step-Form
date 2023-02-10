@@ -87,6 +87,10 @@ const SwitchInfoLabel = styled('div')(({ theme }) => ({
 
   ['&:hover']: {
       cursor: 'pointer'
+  },
+
+  [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+    padding: '2rem 1rem',
   }
 
 }));
@@ -100,7 +104,8 @@ const SwitchLabelContainer = styled('div')(
       alignItems: 'center',
 
       [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
-        marginTop: '0.5rem'
+        marginTop: '0.5rem',
+        marginBottom: '0'
       }
 
     }))

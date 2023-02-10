@@ -15,7 +15,7 @@ const  PersonalInfoForm = () => {
     marginBottom: '4rem',
 
     [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
-      marginBottom: '0'
+      marginBottom: '4rem'
     }
   }
 

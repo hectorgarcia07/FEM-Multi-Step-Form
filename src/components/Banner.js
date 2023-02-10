@@ -31,7 +31,7 @@ const Banner = () => {
         [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
             flexDirection: 'column',
             margin: '2.5rem 1rem',
-            marginRight: '6rem'
+            width: 'calc( 274px - 3rem)'
         }
     }));
 
