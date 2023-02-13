@@ -3,6 +3,7 @@ import SelectPlanForm from './SelectPlanForm';
 import { usePageValues } from '../../hooks/PageControlContextProvider';
 import PersonalInfoForm from './PersonalInfoForm'; 
 import PickAddOns from './PickAddOns/PickAddOns';
+import ReviewOptions from './ReviewOptions';
 import { useFormikContext } from 'formik';
 
 
@@ -20,7 +21,7 @@ const FormLayout = () => {
             case 2:
                 return <PickAddOns /> 
             case 3:
-                return <div>Page four</div>
+                return <ReviewOptions />
             default:
                 throw new Error()
         }
