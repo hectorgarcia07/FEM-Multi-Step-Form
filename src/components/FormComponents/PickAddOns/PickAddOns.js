@@ -56,7 +56,6 @@ const PayDescription = styled('div')(
 
 const CheckBoxLabelContainer = ({ description }) => {
     const { values } = useFormikContext()
-    console.log(values.planLength)
 
     return(
         <LabelContainer>

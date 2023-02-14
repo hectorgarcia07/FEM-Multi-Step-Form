@@ -7,7 +7,7 @@ import { useFormikContext } from 'formik';
 const FormControlButtonContainer = () => {
     const [ pageState, dispatch] = usePageValues()
     const { errors, isValid, ...props } = useFormikContext()
-
+    console.log(pageState)
     const theme = useTheme()
 
     const styles = {
@@ -65,6 +65,18 @@ const FormControlButtonContainer = () => {
         }
     }));
 
+    const SubmitButton = styled(BaseButton)(({ theme }) => ({
+        color: `${ theme.colors.neutral.white }`,
+        backgroundColor: `${ theme.colors.primary.purplish_blue }`,
+        borderRadius: '5px',
+
+        ['&:hover']: {
+            backgroundColor: `${ theme.colors.primary.light_blue }`,
+            color: `black`
+        }
+    }));
+
+
     return (
         <Box sx={styles}>
             <BackButton 
@@ -77,15 +89,26 @@ const FormControlButtonContainer = () => {
                 Go Back
             </BackButton>
 
-            <NextButton 
-                type="button"
-                onClick={ () => dispatch( { type: 'NEXT_FORM_PAGE' } ) }
-                onMouseDown={ event => { event.preventDefault() }}
-                name={'Next-Button'}
-                disabled={ !isValid || !!Object.keys(errors).length }
-            >
-                Next Step
-            </NextButton>
+            {
+                pageState.curr_form_page === 3 
+                    ?
+                <SubmitButton 
+                    type="submit"
+                    name={'Submit-Button'}
+                >
+                    Submit
+                </SubmitButton> 
+                    :
+                <NextButton 
+                    type="button"
+                    onClick={ () => dispatch( { type: 'NEXT_FORM_PAGE' } ) }
+                    onMouseDown={ event => { event.preventDefault() }}
+                    name={'Next-Button'}
+                    disabled={ !isValid || !!Object.keys(errors).length }
+                >
+                    Next Step
+                </NextButton>
+            }
         </Box>
     )
 }

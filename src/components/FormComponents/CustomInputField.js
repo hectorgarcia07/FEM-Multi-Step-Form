@@ -88,22 +88,25 @@ const CustomInput = styled('input')(
         },
         ["&:hover"]: {
             border: `1px solid ${ theme.colors.primary.purplish_blue }`
-      
         }
     }))
 
 const CustomInputField = ({ field, form: { touched, errors }, ...props }) => {
     const error = ([field.name] in touched ) && ([field.name] in errors)
 
+    console.log("Field", field, "props", props )
+
     return (
-        <CustomFormControl { ...field } error={ error } >
+        <CustomFormControl { ...field } error={ error } required >
             <InputLabelContainer>
                 <InputLabelDetails htmlFor={field.name}  error={ error }>{props.label}</InputLabelDetails>
                 <HelperText id={`${field.name}-error-text`} error={error}>{errors[field.name]}</HelperText>
             </InputLabelContainer>
 
             <InputUnstyled
-                {...props}
+                id={props.id}
+                name={field.name}
+                placeholder={props.placeholder}
                 slots={{ input: CustomInput }}
                 slotProps={{ input: { maxLength: props.maxLength } }}
                 aria-describedby={`${field.name}-input-text`}

@@ -4,13 +4,12 @@ import { usePageValues } from '../../hooks/PageControlContextProvider';
 import PersonalInfoForm from './PersonalInfoForm'; 
 import PickAddOns from './PickAddOns/PickAddOns';
 import ReviewOptions from './ReviewOptions';
+import ThankYouPage from './ThankYouPage'
 import { useFormikContext } from 'formik';
-
 
 const FormLayout = () => {
     const [ pageState, dispatch] = usePageValues()
     const { values } = useFormikContext()
-    console.log(values)
 
     const renderFormPage = () => {
         switch(pageState.curr_form_page) {
@@ -22,6 +21,8 @@ const FormLayout = () => {
                 return <PickAddOns /> 
             case 3:
                 return <ReviewOptions />
+            case 4:
+                return <ThankYouPage />
             default:
                 throw new Error()
         }

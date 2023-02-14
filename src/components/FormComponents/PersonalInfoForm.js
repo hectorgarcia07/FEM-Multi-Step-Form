@@ -28,7 +28,8 @@ const  PersonalInfoForm = () => {
         Please provide your name, email address, and phone number.
       </InfoParagraph>
 
-      <Field 
+      <Field
+        key={`personalInfo-name`}
         name="name"
         id="name"
         placeholder="e.g. Stephen King" 
@@ -38,6 +39,7 @@ const  PersonalInfoForm = () => {
       />
 
       <Field 
+        key={`personalInfo-email`}
         name="email"
         id="email"
         placeholder="e.g. stephenking@lorem.com" 
@@ -47,6 +49,7 @@ const  PersonalInfoForm = () => {
       />
 
       <Field 
+        key={`personalInfo-phone`}
         name="phone"
         id="phone"
         placeholder="e.g. +1 234 567 890" 

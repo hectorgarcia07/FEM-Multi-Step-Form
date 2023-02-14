@@ -3,7 +3,7 @@ import { custom_theme } from './theme/custom_theme';
 import Banner from './components/Banner'
 import FormLayout from './components/FormComponents/FormLayout'
 import LayoutContainer from './components/containers/LayoutContainer'
-import PageControlContextProvider from './hooks/PageControlContextProvider';
+import PageControlContextProvider, { usePageValues } from './hooks/PageControlContextProvider';
 import { Formik } from 'formik';
 import PlanSelection, { initialValues } from './YupSchema/planSelection'
 import { styled } from '@mui/material/styles';
@@ -11,7 +11,7 @@ import FormControlButtonContainer from './components/containers/FormControlButto
 import { Box } from '@mui/material';
 
 function App() {
-
+  
   const Form = styled('form')(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
@@ -61,7 +61,6 @@ function App() {
   return (
     <ThemeProvider theme={custom_theme}>
       <PageControlContextProvider>
-
         <LayoutContainer 
           spacing={0}
           alignItems="center"
@@ -71,13 +70,12 @@ function App() {
             validateOnMount={true}
             validationSchema={PlanSelection}
             onSubmit={( values ) => {
-              console.log(values)
+              console.log("submitted", values)
             }}
           >
-            
             {props => (
               <Box sx={styles3}>
-                <Form>
+                <Form onSubmit={props.handleSubmit}>
                   <Banner />
                   <Box sx={styles2}>
                     <FormLayout />

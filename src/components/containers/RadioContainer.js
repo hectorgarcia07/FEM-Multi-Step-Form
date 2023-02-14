@@ -17,11 +17,11 @@ const RadioContainer = styled(FormControlLabel)(({ theme, value }) => {
         ["&:hover"]: {
             borderColor: `${ theme.colors.primary.purplish_blue }`
         },
-        
+
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
             display: 'flex',
             flexDirection: 'column',
-            
+
             maxWidth: '138px',
             flexWrap: 'none',
             width: "100%",

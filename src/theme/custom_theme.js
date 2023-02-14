@@ -1,7 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 import mobileBackground from '../images/bg-sidebar-mobile.svg'
 import desktopBackground from '../images/bg-sidebar-desktop.svg'
-
 import iconAdvanced from '../images/icon-advanced.svg'
 import iconArcade from '../images/icon-arcade.svg'
 import iconCheckmark from '../images/icon-checkmark.svg'
