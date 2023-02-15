@@ -72,7 +72,7 @@ function SelectPlanForm() {
 
   return (
     <FormControlContainer sx={innerForm}>
-      <FormHeader id="plan-selection-label" >
+      <FormHeader >
         Select your plan
       </FormHeader>
       <InfoParagraph>
@@ -80,7 +80,6 @@ function SelectPlanForm() {
       </InfoParagraph>
 
       <RadioGroupContainer
-        aria-labelledby="plan-selection-label"
         defaultValue="pro"
         name="plan"
         value={`${ values.plan }`}

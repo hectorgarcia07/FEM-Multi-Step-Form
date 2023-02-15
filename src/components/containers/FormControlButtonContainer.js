@@ -7,7 +7,6 @@ import { useFormikContext } from 'formik';
 const FormControlButtonContainer = () => {
     const [ pageState, dispatch] = usePageValues()
     const { errors, isValid, ...props } = useFormikContext()
-    console.log(pageState)
     const theme = useTheme()
 
     const styles = {
@@ -18,8 +17,7 @@ const FormControlButtonContainer = () => {
         justifyContent: 'space-between',
 
         [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
-            
-
+            padding: '1rem 0rem',
         },
     }
 
@@ -78,6 +76,10 @@ const FormControlButtonContainer = () => {
 
 
     return (
+        pageState.curr_form_page === 4 
+        ?
+        null
+        :
         <Box sx={styles}>
             <BackButton 
                 type="button"
@@ -88,17 +90,16 @@ const FormControlButtonContainer = () => {
             >
                 Go Back
             </BackButton>
-
             {
                 pageState.curr_form_page === 3 
-                    ?
+                ?
                 <SubmitButton 
                     type="submit"
                     name={'Submit-Button'}
                 >
                     Submit
                 </SubmitButton> 
-                    :
+                :
                 <NextButton 
                     type="button"
                     onClick={ () => dispatch( { type: 'NEXT_FORM_PAGE' } ) }

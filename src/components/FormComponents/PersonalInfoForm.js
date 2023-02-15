@@ -21,7 +21,7 @@ const  PersonalInfoForm = () => {
 
   return (
     <FormControlContainer sx={innerForm}>
-      <FormHeader id="plan-selection-label" >
+      <FormHeader >
         Personal info
       </FormHeader>
       <InfoParagraph>

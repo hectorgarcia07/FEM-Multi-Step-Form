@@ -38,28 +38,6 @@ const priceAddOns = {
     }
 }
 
-const Description = ({ title, gamingPlan, name }) => {
-  const theme = useTheme()
-  const { values, setFieldValue } = useFormikContext()
-
-  return (
-    <Box  >
-      <Box sx={{ color: theme.colors.primary.marine_blue, fontWeight: '900' }}>{ title }</Box>
-      <Box sx={{ color: theme.colors.neutral.cool_gray }}>
-        { values.planLength ? `${gamingPlan.yearly[name]}`: `${gamingPlan.monthly[name]}` }
-      </Box>
-      { values.planLength 
-        ? 
-        <Box sx={{ color: theme.colors.primary.marine_blue, fontSize: '0.8rem' }}>
-          2 months free
-        </Box>
-        :
-        null
-      }
-    </Box>
-  )
-}
-
 const OptionsContainer = styled(Box)(({ theme }) => ({ 
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -70,9 +48,23 @@ const OptionsContainer = styled(Box)(({ theme }) => ({
     },
 }));
 
-const DescriptionContainer = styled(Box)(({ theme}) => ({
+const DescriptionContainer = styled(Box)(({theme}) => ({
     color: theme.colors.neutral.cool_gray, 
     fontSize: '0.9rem',
+}))
+
+const ChangeContainer = styled(DescriptionContainer)(({theme}) => ({
+    color: theme.colors.neutral.cool_gray, 
+    fontSize: '0.9rem',
+    textDecoration: 'underline',
+    textDecorationColor: 'black',
+    ["&:hover"]:{
+        cursor: 'pointer',
+    },
+
+    [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+        paddingTop: '0.3rem',
+    },
 }))
 
 const PlanSelection = () => {
@@ -97,17 +89,11 @@ const PlanSelection = () => {
                 }}>
                     {`${planUpper} (Monthly)`}
                 </Box>
-                <DescriptionContainer sx={{
-                    textDecoration: 'underline',
-                    textDecorationColor: 'black',
-                    ["&:hover"]:{
-                        cursor: 'pointer'
-                    }
-                }}
+                <ChangeContainer 
                     onClick={ () => dispatch( { type: 'CHANGE_PLAN_TYPE' } ) }
                 >
                     Change
-                </DescriptionContainer>
+                </ChangeContainer>
             </Box>
             <Box sx={{ 
                 color: theme.colors.primary.marine_blue, 
@@ -120,9 +106,28 @@ const PlanSelection = () => {
     )
 }
 
+const SelectionContainer = styled(Box)(({theme}) => ({
+    display: 'flex', 
+    justifyContent: 'space-between',
+    "&:not(:last-child)": {
+        marginBottom: '1rem'
+    },
+
+    [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+        paddingTop: '0.5rem',
+    },
+}))
+
+const AddOneSelectionContainer = styled(OptionsContainer)(({theme}) => ({
+    marginBottom: '2rem',
+
+    [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+        marginBottom: '3rem'
+    },
+}))
+
 const AddOnsSelection = () => {
     const { values: { plan, planLength, addOns }, setFieldValue } = useFormikContext()
-    const planUpper = plan.charAt(0).toUpperCase() + plan.slice(1)
     const planType = planLength ? 'yr' : 'mo'
     const theme = useTheme()
     const serviceType = {
@@ -132,31 +137,33 @@ const AddOnsSelection = () => {
     }
 
     return (
-        <OptionsContainer sx={{ marginBottom: '2rem' }}>
+        <AddOneSelectionContainer>
             {
                 addOns.map( value => {
                     return (
-                        <Box key={`key-${value}`} 
-                        sx={{ 
-                            display: 'flex', 
-                            justifyContent: 'space-between',
-                            "&:not(:last-child)": {
-                                marginBottom: '1rem'
-                            },
-                        }}>
+                        <SelectionContainer key={`key-${value}`} >
                             <DescriptionContainer>
                                 {`${serviceType[value]}`}
                             </DescriptionContainer>
                             <Box sx={{ color: theme.colors.primary.marine_blue, fontSize: '0.9rem' }}>
-                                { `+$${planLength ? priceAddOns[value].year : priceAddOns[value].year}/${planType}` }
+                                { `+$${planLength ? priceAddOns[value].year : priceAddOns[value].month}/${planType}` }
                             </Box>
-                        </Box>
+                        </SelectionContainer>
                     )
                 })
             }
-        </OptionsContainer>
+        </AddOneSelectionContainer>
     )
 }
+
+const TotalPriceContainer = styled(Box)(({theme}) => ({
+    color: theme.colors.primary.purplish_blue, 
+    fontWeight: '900',
+
+    [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
+        fontSize: '1.2rem'
+    },
+}))
 
 const TotalContainer = () => {
     const { values: { plan, planLength, addOns }, setFieldValue } = useFormikContext()
@@ -164,7 +171,7 @@ const TotalContainer = () => {
 
     const planType = planLength ? 'yr' : 'mo'
     const planPrice = planLength ? pricePlan[plan].year : pricePlan[plan].month
-    const addOnsPrice = addOns.reduce( (total, value) => (planLength ? priceAddOns[value].year : priceAddOns[value].year) + total, 0 )
+    const addOnsPrice = addOns.reduce( (total, value) => (planLength ? priceAddOns[value].month : priceAddOns[value].year) + total, 0 )
     const totalPrice = planPrice + addOnsPrice
     const theme = useTheme()
 
@@ -173,9 +180,9 @@ const TotalContainer = () => {
             <DescriptionContainer>
                 {`Total (per ${ planLength ? 'year' : 'month'}`}
             </DescriptionContainer>
-            <Box sx={{ color: theme.colors.primary.purplish_blue, fontWeight: '900' }}>
-                { `$${totalPrice}/${planType}` }
-            </Box>
+            <TotalPriceContainer >
+                { `+$${totalPrice}/${planType}` }
+            </TotalPriceContainer>
         </Box>
     )
 }
@@ -209,7 +216,7 @@ const ReviewOptions = () => {
     padding: '1rem',
     
     [theme.breakpoints.up(`${theme.breakpoints.values.desktop}`)]: {
-      
+      padding: '1.5rem'
     },
   }));
 
@@ -221,9 +228,10 @@ const ReviewOptions = () => {
     },
   }));
 
+
   return (
     <FormControlContainer sx={innerForm}>
-      <FormHeader id="plan-selection-label" >
+      <FormHeader>
         Finishing up
       </FormHeader>
       <InfoParagraph>

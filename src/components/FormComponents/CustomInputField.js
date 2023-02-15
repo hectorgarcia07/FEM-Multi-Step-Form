@@ -94,8 +94,6 @@ const CustomInput = styled('input')(
 const CustomInputField = ({ field, form: { touched, errors }, ...props }) => {
     const error = ([field.name] in touched ) && ([field.name] in errors)
 
-    console.log("Field", field, "props", props )
-
     return (
         <CustomFormControl { ...field } error={ error } required >
             <InputLabelContainer>

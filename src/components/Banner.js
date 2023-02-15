@@ -72,9 +72,12 @@ const Banner = () => {
     }));
 
     const setStyle = (num) => {
+        const currPage = pageState.curr_form_page
+        const toggleBgColor = currPage === num || num === 3 && currPage > 3
+
         return {
-            color: `${ pageState.curr_form_page === num ? theme.colors.primary.purplish_blue : 'white' }`,
-            backgroundColor: `${ pageState.curr_form_page === num ? theme.colors.primary.light_blue : 'transparent' }`
+            color: `${ toggleBgColor ? theme.colors.primary.purplish_blue : 'white' }`,
+            backgroundColor: `${ toggleBgColor ? theme.colors.primary.light_blue : 'transparent' }`
         }
     }
 

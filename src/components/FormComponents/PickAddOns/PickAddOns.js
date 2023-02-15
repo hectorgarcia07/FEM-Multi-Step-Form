@@ -148,7 +148,7 @@ const PickAddOns = () => {
 
     return (
         <AddOnsContainer>
-            <FormHeader id="plan-selection-label" >
+            <FormHeader >
                 Pick add-ons
             </FormHeader>
             <InfoParagraph>

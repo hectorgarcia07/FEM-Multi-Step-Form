@@ -9,7 +9,7 @@ const InfoParagraph = styled('p')(({ theme }) => ({
 
     [theme.breakpoints.up( `${ theme.breakpoints.values.desktop }` )]: {
         marginBottom: '2rem',
-        fontSize: '0.9rem'
+        fontSize: '1rem'
     }
 }));
 
