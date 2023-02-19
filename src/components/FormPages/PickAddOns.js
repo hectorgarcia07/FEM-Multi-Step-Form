@@ -1,6 +1,6 @@
-import FormControlContainer from "../FormControlContainer"
-import FormHeader from "../FormHeader"
-import InfoParagraph from "../../InfoParagraph"
+import FormControlContainer from "../FormControlContainer/FormControlContainer"
+import FormHeader from "../FormControlContainer/FormHeader"
+import InfoParagraph from "../FormControlContainer/InfoParagraph"
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { useFormikContext } from "formik";

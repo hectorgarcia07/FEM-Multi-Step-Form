@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
-import FormHeader from './FormHeader';
+import FormHeader from '../FormControlContainer/FormHeader';
 import { Box } from '@mui/system';
-import InfoParagraph from '../InfoParagraph';
-import FormControlContainer from './FormControlContainer';
+import InfoParagraph from '../FormControlContainer/InfoParagraph';
+import FormControlContainer from '../FormControlContainer/FormControlContainer';
 import { useFormikContext } from 'formik';
 import { styled } from '@mui/material/styles';
 import { usePageValues } from '../../hooks/PageControlContextProvider';

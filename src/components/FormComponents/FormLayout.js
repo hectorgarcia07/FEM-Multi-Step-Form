@@ -1,15 +1,14 @@
-import FormContainer from '../containers/FormContainer';
-import SelectPlanForm from './SelectPlanForm';
 import { usePageValues } from '../../hooks/PageControlContextProvider';
-import PersonalInfoForm from './PersonalInfoForm'; 
-import PickAddOns from './PickAddOns/PickAddOns';
-import ReviewOptions from './ReviewOptions';
-import ThankYouPage from './ThankYouPage'
-import { useFormikContext } from 'formik';
+import {
+    PersonalInfoForm,
+    SelectPlanForm,
+    PickAddOns,
+    ReviewOptions,
+    ThankYouPage
+} from './../FormPages'
 
 const FormLayout = () => {
-    const [ pageState, dispatch] = usePageValues()
-    const { values } = useFormikContext()
+    const [ pageState, ] = usePageValues()
 
     const renderFormPage = () => {
         switch(pageState.curr_form_page) {
@@ -29,9 +28,9 @@ const FormLayout = () => {
     }
 
     return(
-        <FormContainer>
+        <>
             { renderFormPage() }
-        </FormContainer>
+        </>
     )
 }
 

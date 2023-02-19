@@ -1,6 +1,6 @@
-import FormControlContainer from './FormControlContainer';
-import FormHeader from './FormHeader';
-import InfoParagraph from '../InfoParagraph';
+import FormControlContainer from '../FormControlContainer/FormControlContainer';
+import FormHeader from '../FormControlContainer/FormHeader';
+import InfoParagraph from '../FormControlContainer/InfoParagraph';
 import { styled } from '@mui/system';
 import { Box, useTheme } from '@mui/material';
 

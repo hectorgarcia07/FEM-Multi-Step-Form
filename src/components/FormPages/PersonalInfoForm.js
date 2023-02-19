@@ -1,13 +1,13 @@
 import * as React from 'react';
-import FormHeader from './FormHeader';
-import InfoParagraph from '../InfoParagraph';
-import CustomInputField from './CustomInputField';
-import FormControlContainer from './FormControlContainer';
+import FormHeader from '../FormControlContainer/FormHeader';
+import InfoParagraph from '../FormControlContainer/InfoParagraph';
+import CustomInputField from '../FormComponents/CustomInputField';
+import FormControlContainer from '../FormControlContainer/FormControlContainer';
 import { useTheme } from '@mui/material';
 import { useFormikContext } from 'formik';
 import { Field } from 'formik';
 
-const  PersonalInfoForm = () => {
+const PersonalInfoForm = () => {
   const theme = useTheme()
   const { values, touched, errors, handleBlur, ...formikContext } = useFormikContext()
 

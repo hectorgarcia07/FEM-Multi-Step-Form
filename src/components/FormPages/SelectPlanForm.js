@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import RadioGroup from '@mui/material/RadioGroup';
-import FormHeader from './FormHeader';
+import FormHeader from '../FormControlContainer/FormHeader';
 import { Box } from '@mui/system';
-import CustomSwitch from './CustomSwitch'
-import InfoParagraph from '../InfoParagraph';
+import CustomSwitch from '../FormComponents/CustomSwitch'
+import InfoParagraph from '../FormControlContainer/InfoParagraph';
 import RadioContainer from '../containers/RadioContainer';
-import CustomRadio from './CustomRadio';
-import FormControlContainer from './FormControlContainer';
+import CustomRadio from '../FormComponents/CustomRadio';
+import FormControlContainer from '../FormControlContainer/FormControlContainer';
 import { useFormikContext } from 'formik';
 import { styled } from '@mui/material/styles';
 
 const Description = ({ title, gamingPlan, name }) => {
   const theme = useTheme()
-  const { values, setFieldValue } = useFormikContext()
+  const { values, } = useFormikContext()
 
   return (
     <Box  >

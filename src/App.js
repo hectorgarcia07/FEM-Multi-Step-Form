@@ -2,7 +2,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { custom_theme } from './theme/custom_theme';
 import LayoutContainer from './components/containers/LayoutContainer'
 import PageControlContextProvider from './hooks/PageControlContextProvider';
-import FormikComponent from './components/FormComponents/FormikComponent'
+import FormikComponent from './components/FormikComponent/FormikComponent'
 
 function App() {
 
