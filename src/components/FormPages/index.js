@@ -1,7 +1,7 @@
 import PersonalInfoForm from "./PersonalInfoForm";
 import PickAddOns from "./PickAddOns";
 import ReviewOptions from "./ReviewOptions";
-import SelectPlanForm from "./SelectPlanForm";
+import SelectPlanForm from "./SelectPlanForm/SelectPlanForm";
 import ThankYouPage from "./ThankYouPage";
 
 export {

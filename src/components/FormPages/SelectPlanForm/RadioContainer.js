@@ -14,6 +14,7 @@ const RadioContainer = styled(FormControlLabel)(({ theme, value }) => {
         borderRadius: '10px',
         margin: '0',
 
+        // eslint-disable-next-line no-useless-computed-key
         ["&:hover"]: {
             borderColor: `${ theme.colors.primary.purplish_blue }`
         },

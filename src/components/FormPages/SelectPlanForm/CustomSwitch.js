@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/system';
 import SwitchUnstyled, { switchUnstyledClasses } from '@mui/base/SwitchUnstyled';
-import { useSwitch } from '@mui/base/SwitchUnstyled';
 import { useFormikContext } from 'formik';
 import { useTheme } from '@mui/material';
 
