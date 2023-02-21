@@ -1,5 +1,5 @@
 import PersonalInfoForm from "./PersonalInfoForm";
-import PickAddOns from "./PickAddOns";
+import PickAddOns from "./PickAddons/PickAddOns";
 import ReviewOptions from "./ReviewOptions";
 import SelectPlanForm from "./SelectPlanForm/SelectPlanForm";
 import ThankYouPage from "./ThankYouPage";
