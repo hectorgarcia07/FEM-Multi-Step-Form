@@ -1,18 +1,15 @@
 import * as React from 'react';
 import CustomInputField from '../FormComponents/CustomInputField';
 import { useTheme } from '@mui/material';
-
 import {
   FormHeader,
   InfoParagraph,
   FormControlContainer
 } from '../FormControlContainer/'
-
-import { useFormikContext, Field } from 'formik';
+import { Field } from 'formik';
 
 const PersonalInfoForm = () => {
   const theme = useTheme()
-  const { values, touched, errors, handleBlur } = useFormikContext()
 
   const innerForm = {
     marginBottom: '4rem',
