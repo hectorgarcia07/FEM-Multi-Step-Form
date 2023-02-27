@@ -11,7 +11,7 @@ const FormControlButtonContainer = () => {
 
     const styles = {
         backgroundColor: `${ theme.colors.neutral.white }`,
-        padding: '0.5rem 0rem',
+        padding: '0rem',
         display: 'flex',
         width: '100%',
         justifyContent: 'space-between',
@@ -97,7 +97,7 @@ const FormControlButtonContainer = () => {
                     type="submit"
                     name={'Submit-Button'}
                 >
-                    Submit
+                    Confirm
                 </SubmitButton> 
                 :
                 <NextButton 

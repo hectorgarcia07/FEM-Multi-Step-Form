@@ -20,7 +20,7 @@ const PersonalInfoForm = () => {
   }
 
   return (
-    <FormControlContainer sx={innerForm}>
+    <FormControlContainer >
       <FormHeader >
         Personal info
       </FormHeader>

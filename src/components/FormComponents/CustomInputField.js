@@ -3,6 +3,7 @@ import InputUnstyled from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 import { Box } from '@mui/material';
 import clsx from 'clsx';
+import * as React from 'react';
 
 const CustomFormControl = styled(FormControlUnstyled)(
     ({ theme }) => ({
@@ -64,7 +65,7 @@ const InputLabelDetails = styled(
     })
 )
 
-const CustomInput = styled('input')(
+const CustomInputStyle = styled('input')(
     ({ theme }) => ({
         width: '100%',
         fontSize: '1rem',
@@ -82,14 +83,23 @@ const CustomInput = styled('input')(
             color: 'dark-grey',
             fontWeight: '300'
         },
+        // eslint-disable-next-line no-useless-computed-key
         ["&:focus"]: {
             outline: `1px solid ${ theme.colors.primary.purplish_blue }`,
             border: `1px solid transparent`
         },
+        // eslint-disable-next-line no-useless-computed-key
         ["&:hover"]: {
             border: `1px solid ${ theme.colors.primary.purplish_blue }`
         }
     }))
+
+const CustomInput = React.forwardRef(function CustomInput( props, ref ) {
+    console.log(ref)
+    return (
+        <InputUnstyled slots={{ input: CustomInputStyle }} {...props} ref={ref} />
+    );
+});
 
 const CustomInputField = ({ field, form: { touched, errors }, ...props }) => {
     const error = ([field.name] in touched ) && ([field.name] in errors)
@@ -101,11 +111,10 @@ const CustomInputField = ({ field, form: { touched, errors }, ...props }) => {
                 <HelperText id={`${field.name}-error-text`} error={error}>{errors[field.name]}</HelperText>
             </InputLabelContainer>
 
-            <InputUnstyled
+            <CustomInput
                 id={props.id}
                 name={field.name}
                 placeholder={props.placeholder}
-                slots={{ input: CustomInput }}
                 slotProps={{ input: { maxLength: props.maxLength } }}
                 aria-describedby={`${field.name}-input-text`}
             />
