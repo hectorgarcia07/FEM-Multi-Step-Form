@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - [GitHub Repo](https://github.com/hectorgarcia07/FEM-Multi-Step-Form)
-- [Live Solution](https://github.com/hectorgarcia07/FEM-Multi-Step-Form)
+- [Live Solution](https://hectorgarcia07.github.io/FEM-Multi-Step-Form)
 
 
 ## My process
