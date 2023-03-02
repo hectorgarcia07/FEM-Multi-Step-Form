@@ -9,7 +9,7 @@ const FormContainer = styled(Box)(({ theme }) => ({
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: '2.5rem 3.5rem 0rem 6.3rem',
-        margin: '0'
+        margin: '0',
       }
   }));
 

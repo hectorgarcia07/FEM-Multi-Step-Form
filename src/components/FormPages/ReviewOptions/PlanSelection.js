@@ -14,6 +14,7 @@ const PlanSelection = () => {
     const planUpper = plan.charAt(0).toUpperCase() + plan.slice(1)
     const planPrice = planLength ? pricePlan[plan].year : pricePlan[plan].month
     const planType = planLength ? 'yr' : 'mo'
+    const planTypeWord = planLength ? 'Yearley' : 'Monthly'
     const [ , dispatch ] = usePageValues()
 
     return (
@@ -28,7 +29,7 @@ const PlanSelection = () => {
                     fontSize: '0.9rem',
                     fontWeight: '900'
                 }}>
-                    {`${planUpper} (Monthly)`}
+                    {`${planUpper} (${planTypeWord})`}
                 </Box>
                 <ChangeContainer 
                     onClick={ () => dispatch( { type: 'CHANGE_PLAN_TYPE' } ) }

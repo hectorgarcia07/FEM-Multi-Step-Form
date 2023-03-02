@@ -94,10 +94,9 @@ const CustomInputStyle = styled('input')(
         }
     }))
 
-const CustomInput = React.forwardRef(function CustomInput( props, ref ) {
-    console.log(ref)
+const CustomInput = React.forwardRef(function CustomInput( {textMaskCustom, ...props}, ref ) {
     return (
-        <InputUnstyled slots={{ input: CustomInputStyle }} {...props} ref={ref} />
+        <InputUnstyled slots={{ input: CustomInputStyle }} {...props} inputProps={{ inputComponent: textMaskCustom }} ref={ref} />
     );
 });
 
@@ -117,6 +116,7 @@ const CustomInputField = ({ field, form: { touched, errors }, ...props }) => {
                 placeholder={props.placeholder}
                 slotProps={{ input: { maxLength: props.maxLength } }}
                 aria-describedby={`${field.name}-input-text`}
+                textMaskCustom={ props.textMaskCustom || null }
             />
       </CustomFormControl>
     )

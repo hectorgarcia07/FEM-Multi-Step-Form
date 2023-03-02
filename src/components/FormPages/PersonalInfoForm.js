@@ -20,7 +20,7 @@ const PersonalInfoForm = () => {
   }
 
   return (
-    <FormControlContainer >
+    <FormControlContainer sx={innerForm}>
       <FormHeader >
         Personal info
       </FormHeader>
@@ -55,7 +55,6 @@ const PersonalInfoForm = () => {
         placeholder="e.g. +1 234 567 890" 
         label="Phone Number"
         maxLength={15}
-
         component={CustomInputField} 
       />
     </FormControlContainer>

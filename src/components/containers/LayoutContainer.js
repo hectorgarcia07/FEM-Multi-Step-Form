@@ -8,7 +8,6 @@ const LayoutContainer = styled(Grid)(({ theme }) => ({
     justifyContent: 'center',
     minHeight: '100vh',
     backgroundColor: `${custom_theme.colors.neutral.magnolia}`,
-
 }));
 
 export default LayoutContainer

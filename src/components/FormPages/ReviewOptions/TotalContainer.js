@@ -11,7 +11,7 @@ const TotalContainer = () => {
     const { values: { plan, planLength, addOns } } = useFormikContext()
     const planType = planLength ? 'yr' : 'mo'
     const planPrice = planLength ? pricePlan[plan].year : pricePlan[plan].month
-    const addOnsPrice = addOns.reduce( (total, value) => (planLength ? priceAddOns[value].month : priceAddOns[value].year) + total, 0 )
+    const addOnsPrice = addOns.reduce( (total, value) => (!planLength ? priceAddOns[value].month : priceAddOns[value].year) + total, 0 )
     const totalPrice = planPrice + addOnsPrice
 
     return (
@@ -20,7 +20,7 @@ const TotalContainer = () => {
                 {`Total (per ${ planLength ? 'year' : 'month'}`}
             </DescriptionContainer>
             <TotalPriceContainer >
-                { `+$${totalPrice}/${planType}` }
+                { `$${totalPrice}/${planType}` }
             </TotalPriceContainer>
         </Box>
     )

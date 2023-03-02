@@ -5,7 +5,6 @@ import PageControlContextProvider from './hooks/PageControlContextProvider';
 import FormikComponent from './components/FormikComponent/FormikComponent'
 
 function App() {
-
   return (
     <ThemeProvider theme={custom_theme}>
       <PageControlContextProvider>
